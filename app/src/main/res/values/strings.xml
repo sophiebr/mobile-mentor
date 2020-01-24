@@ -18,4 +18,7 @@
     <string name="default_major">Major?</string>
     <string name="bio_header_text">Bio</string>
     <string name="save_button_text">Save</string>
+    <string name="post_title_text">Post Title</string>
+    <string name="default_num_zero">0</string>
+    <string name="default_tag_text">Tag</string>
 </resources>

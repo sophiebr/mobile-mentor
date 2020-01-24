@@ -13,4 +13,9 @@
     <string name="menu_tools">Tools</string>
     <string name="menu_share">Share</string>
     <string name="menu_send">Send</string>
+    <string name="default_profile_name">Default Profile Name</string>
+    <string name="default_mentor_text">Mentor?</string>
+    <string name="default_major">Major?</string>
+    <string name="bio_header_text">Bio</string>
+    <string name="save_button_text">Save</string>
 </resources>

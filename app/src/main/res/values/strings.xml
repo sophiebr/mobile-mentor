@@ -21,4 +21,7 @@
     <string name="post_title_text">Post Title</string>
     <string name="default_num_zero">0</string>
     <string name="default_tag_text">Tag</string>
+    <string name="default_question">Default Question?</string>
+    <string name="default_author_name">Author Name</string>
+    <string name="default_response">Default Response</string>
 </resources>

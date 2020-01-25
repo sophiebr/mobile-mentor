@@ -26,4 +26,5 @@
     <string name="default_response">Default Response</string>
     <string name="default_group_title">Default Group Title</string>
     <string name="default_group_member_name">Group Member Name</string>
+    <string name="default_name">Name</string>
 </resources>

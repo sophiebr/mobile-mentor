@@ -24,4 +24,6 @@
     <string name="default_question">Default Question?</string>
     <string name="default_author_name">Author Name</string>
     <string name="default_response">Default Response</string>
+    <string name="default_group_title">Default Group Title</string>
+    <string name="default_group_member_name">Group Member Name</string>
 </resources>

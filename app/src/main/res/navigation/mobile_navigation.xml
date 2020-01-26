@@ -36,16 +36,16 @@
         tools:layout="@layout/fragment_share" />
 
     <fragment
-        android:id="@+id/nav_profile"
-        android:name="edu.rosehulman.brusniss.mobilementor.ui.send.SendFragment"
-        android:label="@string/menu_profile"
-        tools:layout="@layout/fragment_profile" />
-
-    <fragment
         android:id="@+id/nav_send"
         android:name="edu.rosehulman.brusniss.mobilementor.ui.send.SendFragment"
         android:label="@string/menu_send"
         tools:layout="@layout/fragment_send" />
+
+    <fragment
+        android:id="@+id/nav_profile"
+        android:name="edu.rosehulman.brusniss.mobilementor.ui.send.SendFragment"
+        android:label="@string/menu_profile"
+        tools:layout="@layout/fragment_profile" />
 
     <fragment
         android:id="@+id/nav_pub_forum"

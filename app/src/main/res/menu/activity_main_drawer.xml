@@ -42,7 +42,7 @@
             android:title="@string/menu_chats"/>
         <item
             android:id="@+id/nav_settings"
-            android:icon="@drawable/ic_menu_profile"
+            android:icon="@drawable/ic_settings"
             android:title="@string/menu_settings"/>
         <item
             android:id="@+id/nav_logout"

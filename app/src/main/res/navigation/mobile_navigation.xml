@@ -36,8 +36,44 @@
         tools:layout="@layout/fragment_share" />
 
     <fragment
+        android:id="@+id/nav_profile"
+        android:name="edu.rosehulman.brusniss.mobilementor.ui.send.SendFragment"
+        android:label="@string/menu_profile"
+        tools:layout="@layout/fragment_profile" />
+
+    <fragment
         android:id="@+id/nav_send"
         android:name="edu.rosehulman.brusniss.mobilementor.ui.send.SendFragment"
         android:label="@string/menu_send"
         tools:layout="@layout/fragment_send" />
+
+    <fragment
+        android:id="@+id/nav_pub_forum"
+        android:name="edu.rosehulman.brusniss.mobilementor.ui.send.SendFragment"
+        android:label="@string/menu_public_forum"
+        tools:layout="@layout/fragment_gradient_background" />
+    <item
+
+        android:icon="@drawable/ic_forum"
+        android:title="@string/menu_public_forum"/>
+    <item
+        android:id="@+id/nav_rate_my_prof"
+        android:icon="@drawable/ic_rate_my_prof"
+        android:title="@string/menu_rate_my_professor"/>
+    <item
+        android:id="@+id/nav_groups"
+        android:icon="@drawable/ic_groups"
+        android:title="@string/menu_groups"/>
+    <item
+        android:id="@+id/nav_chats"
+        android:icon="@drawable/ic_chat"
+        android:title="@string/menu_chats"/>
+    <item
+        android:id="@+id/nav_settings"
+        android:icon="@drawable/ic_settings"
+        android:title="@string/menu_settings"/>
+    <item
+        android:id="@+id/nav_logout"
+        android:icon="@drawable/ic_logout"
+        android:title="@string/menu_logout"/>
 </navigation>

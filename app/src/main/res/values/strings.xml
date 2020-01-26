@@ -27,4 +27,5 @@
     <string name="default_group_title">Default Group Title</string>
     <string name="default_group_member_name">Group Member Name</string>
     <string name="default_name">Name</string>
+    <string name="default_bio_text_from_profile">Default bio text from profile</string>
 </resources>

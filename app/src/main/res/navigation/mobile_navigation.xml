@@ -52,14 +52,12 @@
         android:name="edu.rosehulman.brusniss.mobilementor.ui.send.SendFragment"
         android:label="@string/menu_public_forum"
         tools:layout="@layout/fragment_gradient_background" />
-    <item
 
-        android:icon="@drawable/ic_forum"
-        android:title="@string/menu_public_forum"/>
-    <item
+    <fragment
         android:id="@+id/nav_rate_my_prof"
-        android:icon="@drawable/ic_rate_my_prof"
-        android:title="@string/menu_rate_my_professor"/>
+        android:name="edu.rosehulman.brusniss.mobilementor.ui.send.SendFragment"
+        android:label="@string/menu_rate_my_professor"
+        tools:layout="@layout/fragment_gradient_background" />
     <item
         android:id="@+id/nav_groups"
         android:icon="@drawable/ic_groups"

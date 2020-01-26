@@ -34,7 +34,7 @@
             android:title="@string/menu_rate_my_professor"/>
         <item
             android:id="@+id/nav_groups"
-            android:icon="@drawable/ic_menu_profile"
+            android:icon="@drawable/ic_groups"
             android:title="@string/menu_groups"/>
         <item
             android:id="@+id/nav_chats"

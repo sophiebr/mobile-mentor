@@ -26,7 +26,7 @@
             android:title="@string/menu_profile"/>
         <item
             android:id="@+id/nav_pub_forum"
-            android:icon="@drawable/ic_menu_profile"
+            android:icon="@drawable/ic_forum"
             android:title="@string/menu_public_forum"/>
         <item
             android:id="@+id/nav_rate_my_prof"

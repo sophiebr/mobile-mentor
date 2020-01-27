@@ -37,7 +37,7 @@ class MainActivity : AppCompatActivity() {
         appBarConfiguration = AppBarConfiguration(
             setOf(
                 R.id.nav_profile, R.id.nav_pub_forum, R.id.nav_rate_my_prof,
-                R.id.nav_groups
+                R.id.nav_groups, R.id.nav_chats
             ), drawerLayout
         )
         setupActionBarWithNavController(navController, appBarConfiguration)

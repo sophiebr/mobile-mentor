@@ -6,42 +6,6 @@
     app:startDestination="@+id/nav_pub_forum">
 
     <fragment
-        android:id="@+id/nav_home"
-        android:name="edu.rosehulman.brusniss.mobilementor.ui.home.HomeFragment"
-        android:label="@string/menu_home"
-        tools:layout="@layout/fragment_home" />
-
-    <fragment
-        android:id="@+id/nav_gallery"
-        android:name="edu.rosehulman.brusniss.mobilementor.ui.gallery.GalleryFragment"
-        android:label="@string/menu_gallery"
-        tools:layout="@layout/fragment_gallery" />
-
-    <fragment
-        android:id="@+id/nav_slideshow"
-        android:name="edu.rosehulman.brusniss.mobilementor.ui.slideshow.SlideshowFragment"
-        android:label="@string/menu_slideshow"
-        tools:layout="@layout/fragment_slideshow" />
-
-    <fragment
-        android:id="@+id/nav_tools"
-        android:name="edu.rosehulman.brusniss.mobilementor.ui.tools.ToolsFragment"
-        android:label="@string/menu_tools"
-        tools:layout="@layout/fragment_tools" />
-
-    <fragment
-        android:id="@+id/nav_share"
-        android:name="edu.rosehulman.brusniss.mobilementor.ui.share.ShareFragment"
-        android:label="@string/menu_share"
-        tools:layout="@layout/fragment_share" />
-
-    <fragment
-        android:id="@+id/nav_send"
-        android:name="edu.rosehulman.brusniss.mobilementor.ui.send.SendFragment"
-        android:label="@string/menu_send"
-        tools:layout="@layout/fragment_send" />
-
-    <fragment
         android:id="@+id/nav_profile"
         android:name="edu.rosehulman.brusniss.mobilementor.profile.ProfileFragment"
         android:label="@string/menu_profile"

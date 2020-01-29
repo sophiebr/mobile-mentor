@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <PreferenceCategory
+        android:title="Notifications">
+
+        <ListPreference
+            android:dialogTitle="Select Forum Notification Option"
+            android:entries="@array/settings_forumnotifications_titles"
+            android:entryValues="@array/settings_forumnotifications_values"
+            android:key="list"
+            android:summary="[Selected Setting Displayed Here]"
+            android:title="Forum Notifications" />
+
+        <ListPreference
+            android:dialogTitle="Select Chat Notification Option"
+            android:entries="@array/settings_chatnotifications_titles"
+            android:entryValues="@array/settings_chatnotifications_values"
+            android:key="list"
+            android:summary="[Selected Setting Displayed Here]"
+            android:title="Chat Notifications" />
+
+        <SwitchPreference
+            android:key="switch"
+            android:title="Do Not Disturb"
+            android:summary="Click to switch on or off"
+            android:defaultValue="true"/>
+
+    </PreferenceCategory>
+
+    <PreferenceCategory
+        android:title="Customize">
+
+        <Preference
+            android:title="Banner Color"
+            android:summary="[Selected Setting Displayed Here]"
+            />
+
+        <Preference
+            android:title="Menu Color"
+            android:summary="[Selected Setting Displayed Here]"
+            />
+
+        <ListPreference
+            android:dialogTitle="Select Text Font Option"
+            android:entries="@array/settings_textfont_titles"
+            android:entryValues="@array/settings_textfont_values"
+            android:key="list"
+            android:summary="[Selected Setting Displayed Here]"
+            android:title="Text Font" />
+
+        <ListPreference
+            android:dialogTitle="Select Text Size Option"
+            android:entries="@array/settings_textsize_titles"
+            android:entryValues="@array/settings_textsize_values"
+            android:key="list"
+            android:summary="[Selected Setting Displayed Here]"
+            android:title="Text Size" />
+
+    </PreferenceCategory>
+
+    <PreferenceCategory
+        android:title="Mobile Mentor">
+
+        <Preference
+            android:title="About"/>
+    </PreferenceCategory>
+
+</PreferenceScreen>

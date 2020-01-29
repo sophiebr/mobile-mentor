@@ -32,6 +32,16 @@
     <PreferenceCategory
         android:title="Customize">
 
+        <Preference
+            android:title="Banner Color"
+            android:summary="[Selected Setting Displayed Here]"
+            />
+
+        <Preference
+            android:title="Menu Color"
+            android:summary="[Selected Setting Displayed Here]"
+            />
+
         <ListPreference
             android:dialogTitle="Select Text Font Option"
             android:entries="@array/settings_textfont_titles"

@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <array name="settings_forumnotifications_titles">
+        <item>Option 1</item>
+        <item>Option 2</item>
+        <item>Option 3</item>
+    </array>
+    <array name="settings_forumnotifications_values">
+        <item>Option 1</item>
+        <item>Option 2</item>
+        <item>Option 3</item>
+    </array>
+
+    <array name="settings_chatnotifications_titles">
+        <item>Option 1</item>
+        <item>Option 2</item>
+        <item>Option 3</item>
+    </array>
+    <array name="settings_chatnotifications_values">
+        <item>Option 1</item>
+        <item>Option 2</item>
+        <item>Option 3</item>
+    </array>
+
+    <array name="settings_textfont_titles">
+        <item>Option 1</item>
+        <item>Option 2</item>
+        <item>Option 3</item>
+    </array>
+    <array name="settings_textfont_values">
+        <item>Option 1</item>
+        <item>Option 2</item>
+        <item>Option 3</item>
+    </array>
+
+    <array name="settings_textsize_titles">
+        <item>Option 1</item>
+        <item>Option 2</item>
+        <item>Option 3</item>
+    </array>
+    <array name="settings_textsize_values">
+        <item>Option 1</item>
+        <item>Option 2</item>
+        <item>Option 3</item>
+    </array>
+</resources>

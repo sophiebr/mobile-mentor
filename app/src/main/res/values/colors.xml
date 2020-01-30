@@ -5,4 +5,5 @@
     <color name="colorAccent">#D81B60</color>
     <color name="bioLightGrey">#CACACA</color>
     <color name="menuColor">#B42BB7</color>
+    <color name="colorRatingProgress">#707070</color>
 </resources>

@@ -43,6 +43,6 @@
         android:scaleX="1.5"
         android:scaleY="1.5"
         android:rating="2.5"
-        android:progressTint="@color/colorPrimary"/>
+        android:progressTint="@color/colorRatingProgress"/>
 
 </RelativeLayout>

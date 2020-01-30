@@ -1,37 +1,48 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.cardview.widget.CardView
+    android:id="@+id/card_view_group_forum_summary_row"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_margin="10dp"
-    android:padding="5dp">
+    app:cardCornerRadius="10dp"
+    android:layout_marginTop="5dp"
+    android:layout_marginBottom="5dp"
+    android:layout_marginStart="10dp"
+    android:layout_marginEnd="10dp">
 
-    <TextView
-        android:id="@+id/group_title_text"
-        android:layout_width="wrap_content"
+    <RelativeLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/default_group_title"
-        android:textSize="20sp"
-        android:textStyle="bold"/>
+        android:layout_margin="10dp"
+        android:padding="5dp">
 
-    <ImageView
-        android:id="@+id/imageView3"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:srcCompat="@drawable/ic_chat"
-        android:layout_alignParentRight="true"
-        android:layout_centerVertical="true"/>
+        <TextView
+            android:id="@+id/group_title_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/default_group_title"
+            android:textSize="20sp"
+            android:textStyle="bold"/>
 
-    <TextView
-        android:id="@+id/group_num_notifications_count_text"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/default_num_zero"
-        android:textSize="20sp"
-        android:textStyle="bold"
-        android:layout_toLeftOf="@id/imageView3"
-        android:layout_marginEnd="10dp"/>
+        <ImageView
+            android:id="@+id/imageView3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:srcCompat="@drawable/ic_chat"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"/>
 
+        <TextView
+            android:id="@+id/group_num_notifications_count_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/default_num_zero"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            android:layout_toLeftOf="@id/imageView3"
+            android:layout_marginEnd="10dp"/>
 
-</RelativeLayout>
+    </RelativeLayout>
+
+</androidx.cardview.widget.CardView>

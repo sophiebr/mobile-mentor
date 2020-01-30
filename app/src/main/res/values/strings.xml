@@ -46,4 +46,5 @@
     <string name="default_class">Default Class XX123</string>
     <string name="about_text">Mobile Mentor was created by Sophie Brusniak and Rias Hilliard to facilitate communication between mentors and mentees in Rose-Hulman mentoring programs.\n\nThis app was made for the Winter 2019/2020 Android Project.</string>
     <string name="version_number">Version 1.0.0</string>
+    <string name="send_text">Send</string>
 </resources>

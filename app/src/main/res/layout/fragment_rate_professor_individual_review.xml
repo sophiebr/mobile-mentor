@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="20dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:weightSum="1">
+
+        <ImageView
+            android:id="@+id/professor_image"
+            android:layout_width="130dp"
+            android:layout_height="130dp"
+            android:src="@drawable/mobilementoricon"
+            android:layout_weight="0.2"/>
+
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_weight="0.9">
+
+            <TextView
+                android:id="@+id/rate_professor_department"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:text="@string/default_professor_department"
+                android:layout_above="@id/rate_professor_name"
+                android:textSize="18sp"/>
+
+            <TextView
+                android:id="@+id/rate_professor_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/default_professor_name"
+                android:layout_centerInParent="true"
+                android:textSize="24sp"
+                android:textStyle="bold"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="10dp"/>
+
+            <RatingBar
+                android:id="@+id/rate_professor_rating"
+                style="@android:style/Widget.Holo.Light.RatingBar.Small"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="30dp"
+                android:scaleX="1.5"
+                android:scaleY="1.5"
+                android:rating="2.5"
+                android:progressTint="@color/colorRatingProgress"
+                android:layout_centerHorizontal="true"
+                android:layout_below="@id/rate_professor_name"/>
+
+        </RelativeLayout>
+
+    </LinearLayout>
+
+</LinearLayout>

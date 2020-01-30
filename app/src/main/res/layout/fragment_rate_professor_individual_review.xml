@@ -60,4 +60,39 @@
 
     </LinearLayout>
 
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="10dp">
+
+        <TextView
+            android:id="@+id/rate_professor_reviews_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/reviews_text"
+            android:textColor="@color/colorPrimary"
+            android:textSize="18sp"/>
+
+        <ImageView
+            android:id="@+id/professor_review_edit_image"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_edit"
+            android:layout_alignParentEnd="true"/>
+
+        <TextView
+            android:id="@+id/rate_professor_write_reviews_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/write_review_text"
+            android:textSize="18sp"
+            android:layout_toStartOf="@+id/professor_review_edit_image"/>
+
+    </RelativeLayout>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/professor_review_recycler"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+
 </LinearLayout>

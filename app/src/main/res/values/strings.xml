@@ -37,4 +37,6 @@
     <string name="menu_logout">Logout</string>
     <string name="default_professor_name">Professor Name</string>
     <string name="default_professor_department">Department</string>
+    <string name="reviews_text">Reviews</string>
+    <string name="write_review_text">Write Review</string>
 </resources>

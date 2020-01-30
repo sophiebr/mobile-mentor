@@ -30,6 +30,8 @@
     </RelativeLayout>
 
     <androidx.recyclerview.widget.RecyclerView
+        android:layout_margin="20dp"
+
         android:id="@+id/professor_rating_summary_recycler_view"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"/>

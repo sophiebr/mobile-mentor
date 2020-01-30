@@ -39,4 +39,9 @@
     <string name="default_professor_department">Department</string>
     <string name="reviews_text">Reviews</string>
     <string name="write_review_text">Write Review</string>
+    <string name="quality_text">Quality</string>
+    <string name="difficulty_text">Difficulty</string>
+    <string name="empty_review_rating">0.0</string>
+    <string name="default_professor_review">Default professor review text for Rate My Professor</string>
+    <string name="default_class">Default Class XX123</string>
 </resources>

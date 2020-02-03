@@ -18,7 +18,6 @@ class PublicForumFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         val rootView = inflater.inflate(R.layout.fragment_gradient_background, container, false)
-        setHasOptionsMenu(true)
         rootView.gradient_recycler_view.layoutManager = LinearLayoutManager(context)
         val adapter = ForumPostListAdapter(context!!, findNavController(), rootView.gradient_recycler_view.layoutManager as LinearLayoutManager)
         rootView.gradient_recycler_view.setHasFixedSize(true)

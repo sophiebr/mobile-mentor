@@ -24,12 +24,25 @@ class ForumPostFragment : Fragment() {
             forumPostModel = it.getParcelable("post")
         }
         val forumView = inflater.inflate(R.layout.fragment_forum_post, container, false)
-        forumView.post_question_header.post_title_text.text = forumPostModel?.title
-        // More initialization from the forum post model...
+        loadPostHeader(forumView.post_question_header)
         forumView.post_response_recycler_view.layoutManager = LinearLayoutManager(context)
         val adapter = ForumResponseAdapter(context!!, forumPostModel!!.responses)
         forumView.post_response_recycler_view.setHasFixedSize(true)
         forumView.post_response_recycler_view.adapter = adapter
         return forumView
+    }
+
+    private fun loadPostHeader(header: View) {
+        header.post_title_text.text = forumPostModel?.title
+        header.post_response_status.setImageResource(when (forumPostModel?.questionState) {
+            QuestionStatus.MENTOR_ANSWERED -> R.drawable.ic_answered
+            QuestionStatus.NOTIFICATION -> R.drawable.ic_forum_notification
+            else ->  R.drawable.ic_hourglass
+        })
+        // TODO: Add tags
+        header.post_question_text.text = forumPostModel?.content
+        header.post_like_text.text = forumPostModel?.likeCount.toString()
+        header.post_response_text.text = forumPostModel?.responseCount.toString()
+        header.post_star_text.text = forumPostModel?.mentorResponseCount.toString()
     }
 }

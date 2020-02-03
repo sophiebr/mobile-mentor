@@ -18,6 +18,12 @@
         tools:layout="@layout/fragment_gradient_background" />
 
     <fragment
+        android:id="@+id/nav_forum_post"
+        android:name="edu.rosehulman.brusniss.mobilementor.forum.PublicForumFragment"
+        android:label="@string/default_forum_post"
+        tools:layout="@layout/fragment_forum_post" />
+
+    <fragment
         android:id="@+id/nav_rate_my_prof"
         android:name="edu.rosehulman.brusniss.mobilementor.rateprof.RateMyProfessorFragment"
         android:label="@string/menu_rate_my_professor"

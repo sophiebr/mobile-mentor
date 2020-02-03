@@ -13,6 +13,6 @@ class RateMyProfessorFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        return inflater.inflate(R.layout.fragment_gradient_background, container, false)
+        return inflater.inflate(R.layout.fragment_rate_professor_summary, container, false)
     }
 }

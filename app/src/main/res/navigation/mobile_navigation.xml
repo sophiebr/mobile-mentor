@@ -19,7 +19,7 @@
 
     <fragment
         android:id="@+id/nav_forum_post"
-        android:name="edu.rosehulman.brusniss.mobilementor.forum.PublicForumFragment"
+        android:name="edu.rosehulman.brusniss.mobilementor.forum.ForumPostFragment"
         android:label="@string/default_forum_post"
         tools:layout="@layout/fragment_forum_post" />
 

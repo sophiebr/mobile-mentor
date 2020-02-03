@@ -1,44 +1,55 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.cardview.widget.CardView
+    android:id="@+id/card_view_group_poll_row"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:orientation="vertical"
+    xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_margin="10dp"
-    android:padding="5dp">
+    app:cardCornerRadius="10dp"
+    android:layout_marginTop="5dp"
+    android:layout_marginBottom="5dp"
+    android:layout_marginStart="10dp"
+    android:layout_marginEnd="10dp">
 
-    <ImageView
-        android:id="@+id/group_member_image"
-        android:layout_width="70dp"
-        android:layout_height="70dp"
-        app:srcCompat="@drawable/mobilementoricon" />
-
-    <TextView
-        android:id="@+id/group_member_name"
-        android:layout_width="wrap_content"
+    <RelativeLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/default_name"
-        android:textSize="26sp"
-        android:layout_marginStart="10dp"
-        android:layout_toEndOf="@id/group_member_image"
-        android:layout_centerVertical="true"/>
+        android:layout_margin="10dp"
+        android:padding="5dp">
 
-    <TextView
-        android:id="@+id/group_member_poll_position"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/default_num_zero"
-        android:textSize="26sp"
-        android:textStyle="bold"
-        android:layout_marginStart="10dp"
-        android:layout_centerVertical="true"
-        android:layout_alignParentEnd="true"
-        android:paddingLeft="35dp"
-        android:paddingRight="35dp"
-        android:paddingTop="5dp"
-        android:paddingBottom="5dp"
-        android:background="@android:color/darker_gray"/>
+        <ImageView
+            android:id="@+id/professor_image"
+            android:layout_width="70dp"
+            android:layout_height="70dp"
+            app:srcCompat="@drawable/mobilementoricon" />
 
+        <TextView
+            android:id="@+id/group_member_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/default_name"
+            android:textSize="26sp"
+            android:layout_marginStart="10dp"
+            android:layout_toEndOf="@id/professor_image"
+            android:layout_centerVertical="true"/>
 
-</RelativeLayout>
+        <TextView
+            android:id="@+id/group_member_poll_position"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/default_num_zero"
+            android:textSize="26sp"
+            android:textStyle="bold"
+            android:layout_marginStart="10dp"
+            android:layout_centerVertical="true"
+            android:layout_alignParentEnd="true"
+            android:paddingLeft="35dp"
+            android:paddingRight="35dp"
+            android:paddingTop="5dp"
+            android:paddingBottom="5dp"
+            android:background="@android:color/darker_gray"/>
+
+    </RelativeLayout>
+
+</androidx.cardview.widget.CardView>

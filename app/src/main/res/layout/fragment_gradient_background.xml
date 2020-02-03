@@ -10,4 +10,10 @@
         android:layout_height="1dp"
         android:background="@android:color/darker_gray"/>
 
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/gradient_recycler_view"
+        android:layout_margin="10dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+
 </RelativeLayout>

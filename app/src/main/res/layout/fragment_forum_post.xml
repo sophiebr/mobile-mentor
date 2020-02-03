@@ -12,6 +12,7 @@
         android:background="@android:color/darker_gray"/>
 
     <LinearLayout
+        android:id="@+id/post_quesiton_header"
         android:orientation="vertical"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -144,5 +145,12 @@
         </RelativeLayout>
 
     </LinearLayout>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/post_response_recycler_view"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:layout_below="@id/post_quesiton_header"/>
 
 </RelativeLayout>

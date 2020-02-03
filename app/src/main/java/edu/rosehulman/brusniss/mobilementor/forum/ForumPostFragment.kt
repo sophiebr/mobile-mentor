@@ -22,6 +22,7 @@ class ForumPostFragment : Fragment() {
         }
         val forumView = inflater.inflate(R.layout.fragment_forum_post, container, false)
         forumView.post_question_header.post_title_text.text = forumPostModel?.title
+        // More initialization from the forum post model...
         return forumView
     }
 }

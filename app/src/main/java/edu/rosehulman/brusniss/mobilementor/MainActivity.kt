@@ -3,6 +3,7 @@ package edu.rosehulman.brusniss.mobilementor
 import android.app.Activity
 import android.content.Intent
 import android.os.Bundle
+import android.util.Log
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 import com.google.android.material.snackbar.Snackbar
 import androidx.navigation.findNavController
@@ -78,6 +79,12 @@ class MainActivity : AppCompatActivity(),
             val result = Rosefire.getSignInResultFromIntent(data)
             if (result.isSuccessful) {
                 auth.signInWithCustomToken(result.token)
+                Log.d(Constants.TAG, "Username: ${result.username}")
+                Log.d(Constants.TAG, "Name: ${result.name}")
+                Log.d(Constants.TAG, "Email: ${result.email}")
+                Log.d(Constants.TAG, "Group: ${result.group}")
+            } else {
+                Log.d(Constants.TAG, "Rosefire failed")
             }
         }
     }

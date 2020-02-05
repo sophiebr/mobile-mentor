@@ -1,5 +1,7 @@
 package edu.rosehulman.brusniss.mobilementor
 
+import android.app.Activity
+import android.content.Intent
 import android.os.Bundle
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 import com.google.android.material.snackbar.Snackbar
@@ -8,15 +10,20 @@ import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.navigateUp
 import androidx.navigation.ui.setupActionBarWithNavController
 import androidx.navigation.ui.setupWithNavController
-import androidx.drawerlayout.widget.DrawerLayout
 import com.google.android.material.navigation.NavigationView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.Toolbar
 import android.view.Menu
+import com.google.firebase.auth.FirebaseAuth
+import edu.rosehulman.brusniss.mobilementor.login.SplashFragment
+import edu.rosehulman.rosefire.Rosefire
 
-class MainActivity : AppCompatActivity() {
+class MainActivity : AppCompatActivity(),
+    SplashFragment.OnRosefireLoginButtonPressedListener {
 
     private lateinit var appBarConfiguration: AppBarConfiguration
+    private val auth = FirebaseAuth.getInstance()
+    private val RC_ROSEFIRE_LOGIN = 1
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -55,5 +62,23 @@ class MainActivity : AppCompatActivity() {
         return navController.navigateUp(appBarConfiguration) || super.onSupportNavigateUp()
     }
 
+    override fun onRosefireLoginButtonPressed() {
+        launchLoginUI()
+    }
 
+    private fun launchLoginUI() {
+        val REGISTRY_TOKEN = getString(R.string.rosefire_token)
+        val signInIntent: Intent = Rosefire.getSignInIntent(this, REGISTRY_TOKEN)
+        startActivityForResult(signInIntent, RC_ROSEFIRE_LOGIN)
+    }
+
+    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+        super.onActivityResult(requestCode, resultCode, data)
+        if (resultCode == Activity.RESULT_OK && requestCode == RC_ROSEFIRE_LOGIN) {
+            val result = Rosefire.getSignInResultFromIntent(data)
+            if (result.isSuccessful) {
+                auth.signInWithCustomToken(result.token)
+            }
+        }
+    }
 }

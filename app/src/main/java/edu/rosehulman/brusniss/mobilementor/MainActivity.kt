@@ -76,12 +76,14 @@ class MainActivity : AppCompatActivity(),
     }
 
     private fun switchToSplashFragment() {
+        supportActionBar?.hide()
         val ft = supportFragmentManager.beginTransaction()
         ft.replace(R.id.fragment_container, SplashFragment())
         ft.commit()
     }
 
     private fun switchToPublicForumFragment(uid: String) {
+        supportActionBar?.show()
         val ft = supportFragmentManager.beginTransaction()
         ft.replace(R.id.fragment_container, PublicForumFragment.newInstance(uid))
         ft.commit()

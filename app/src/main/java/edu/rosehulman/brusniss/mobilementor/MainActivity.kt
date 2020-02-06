@@ -20,6 +20,7 @@ import com.google.firebase.auth.FirebaseAuth
 import edu.rosehulman.brusniss.mobilementor.forum.PublicForumFragment
 import edu.rosehulman.brusniss.mobilementor.login.SplashFragment
 import edu.rosehulman.rosefire.Rosefire
+import kotlinx.android.synthetic.main.app_bar_main.*
 
 class MainActivity : AppCompatActivity(),
     SplashFragment.OnRosefireLoginButtonPressedListener {
@@ -77,6 +78,7 @@ class MainActivity : AppCompatActivity(),
 
     private fun switchToSplashFragment() {
         supportActionBar?.hide()
+        fab.hide()
         val ft = supportFragmentManager.beginTransaction()
         ft.replace(R.id.fragment_container, SplashFragment())
         ft.commit()
@@ -84,6 +86,7 @@ class MainActivity : AppCompatActivity(),
 
     private fun switchToPublicForumFragment(uid: String) {
         supportActionBar?.show()
+        fab.show()
         val ft = supportFragmentManager.beginTransaction()
         ft.replace(R.id.fragment_container, PublicForumFragment.newInstance(uid))
         ft.commit()

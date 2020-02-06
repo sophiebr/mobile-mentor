@@ -15,6 +15,7 @@ import com.google.android.material.navigation.NavigationView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.Toolbar
 import android.view.Menu
+import android.view.MenuItem
 import com.google.firebase.auth.FirebaseAuth
 import edu.rosehulman.brusniss.mobilementor.forum.PublicForumFragment
 import edu.rosehulman.brusniss.mobilementor.login.SplashFragment
@@ -33,8 +34,6 @@ class MainActivity : AppCompatActivity(),
         setContentView(R.layout.activity_main)
         val toolbar: Toolbar = findViewById(R.id.toolbar)
         setSupportActionBar(toolbar)
-
-        Log.d(Constants.TAG, "JUST BEFORE FAB")
 
         val fab: FloatingActionButton = findViewById(R.id.fab)
         fab.setOnClickListener { view ->
@@ -59,7 +58,6 @@ class MainActivity : AppCompatActivity(),
     }
 
     private fun initializeListeners() {
-        Log.d(Constants.TAG, "INITIALIZING LISTENERS")
         authStateListener = FirebaseAuth.AuthStateListener { auth: FirebaseAuth ->
             val user = auth.currentUser
             Log.d(Constants.TAG, "In auth listener, user = $user")
@@ -70,10 +68,8 @@ class MainActivity : AppCompatActivity(),
                 Log.d(Constants.TAG, "Phone: ${user.phoneNumber}")
                 Log.d(Constants.TAG, "Photo URL: ${user.photoUrl}")
 
-                Log.d(Constants.TAG, "SWITCH TO PUBLIC FORUM FRAGMENT")
                 switchToPublicForumFragment(user.uid)
             } else {
-                Log.d(Constants.TAG, "SWITCH TO SPLASH FRAGMENT")
                 switchToSplashFragment()
             }
         }
@@ -135,6 +131,16 @@ class MainActivity : AppCompatActivity(),
             } else {
                 Log.d(Constants.TAG, "Rosefire failed")
             }
+        }
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        return when (item.itemId) {
+            R.id.action_settings -> {
+                auth.signOut()
+                true
+            }
+            else -> super.onOptionsItemSelected(item)
         }
     }
 }

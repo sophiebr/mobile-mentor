@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "574706071687",
+    "firebase_url": "https://csse483-mobile-mentor.firebaseio.com",
+    "project_id": "csse483-mobile-mentor",
+    "storage_bucket": "csse483-mobile-mentor.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:574706071687:android:fa6ce3437ac02e9a9ce022",
+        "android_client_info": {
+          "package_name": "edu.rosehulman.brusniss.mobilementor"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "574706071687-7eko4gki6kma8nlst6itova2sel3r132.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "edu.rosehulman.brusniss.mobilementor",
+            "certificate_hash": "ad3d387b9d8a58ce3897f82eef61e1451e946b77"
+          }
+        },
+        {
+          "client_id": "574706071687-3uee04f4007jmod7c3jfu03ofteng5ej.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDidD42Vmkh7vtfLRg-4hKmAGZYJN3WypQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "574706071687-3uee04f4007jmod7c3jfu03ofteng5ej.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

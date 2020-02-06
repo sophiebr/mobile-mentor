@@ -16,6 +16,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.Toolbar
 import android.view.Menu
 import com.google.firebase.auth.FirebaseAuth
+import edu.rosehulman.brusniss.mobilementor.forum.PublicForumFragment
 import edu.rosehulman.brusniss.mobilementor.login.SplashFragment
 import edu.rosehulman.rosefire.Rosefire
 
@@ -24,6 +25,7 @@ class MainActivity : AppCompatActivity(),
 
     private lateinit var appBarConfiguration: AppBarConfiguration
     private val auth = FirebaseAuth.getInstance()
+    lateinit var authStateListener: FirebaseAuth.AuthStateListener
     private val RC_ROSEFIRE_LOGIN = 1
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -31,6 +33,8 @@ class MainActivity : AppCompatActivity(),
         setContentView(R.layout.activity_main)
         val toolbar: Toolbar = findViewById(R.id.toolbar)
         setSupportActionBar(toolbar)
+
+        Log.d(Constants.TAG, "JUST BEFORE FAB")
 
         val fab: FloatingActionButton = findViewById(R.id.fab)
         fab.setOnClickListener { view ->
@@ -50,6 +54,51 @@ class MainActivity : AppCompatActivity(),
         )
         setupActionBarWithNavController(navController, appBarConfiguration)
         navView.setupWithNavController(navController)
+
+        initializeListeners()
+    }
+
+    private fun initializeListeners() {
+        Log.d(Constants.TAG, "INITIALIZING LISTENERS")
+        authStateListener = FirebaseAuth.AuthStateListener { auth: FirebaseAuth ->
+            val user = auth.currentUser
+            Log.d(Constants.TAG, "In auth listener, user = $user")
+            if (user != null) {
+                Log.d(Constants.TAG, "UID: ${user.uid}")
+                Log.d(Constants.TAG, "Name: ${user.displayName}")
+                Log.d(Constants.TAG, "Email: ${user.email}")
+                Log.d(Constants.TAG, "Phone: ${user.phoneNumber}")
+                Log.d(Constants.TAG, "Photo URL: ${user.photoUrl}")
+
+                Log.d(Constants.TAG, "SWITCH TO PUBLIC FORUM FRAGMENT")
+                switchToPublicForumFragment(user.uid)
+            } else {
+                Log.d(Constants.TAG, "SWITCH TO SPLASH FRAGMENT")
+                switchToSplashFragment()
+            }
+        }
+    }
+
+    private fun switchToSplashFragment() {
+        val ft = supportFragmentManager.beginTransaction()
+        ft.replace(R.id.fragment_container, SplashFragment())
+        ft.commit()
+    }
+
+    private fun switchToPublicForumFragment(uid: String) {
+        val ft = supportFragmentManager.beginTransaction()
+        ft.replace(R.id.fragment_container, PublicForumFragment.newInstance(uid))
+        ft.commit()
+    }
+
+    override fun onStart() {
+        super.onStart()
+        auth.addAuthStateListener(authStateListener)
+    }
+
+    override fun onStop() {
+        super.onStop()
+        auth.removeAuthStateListener(authStateListener)
     }
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {

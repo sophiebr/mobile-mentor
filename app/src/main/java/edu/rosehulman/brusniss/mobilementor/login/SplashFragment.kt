@@ -9,8 +9,6 @@ import android.view.ViewGroup
 import edu.rosehulman.brusniss.mobilementor.R
 import kotlinx.android.synthetic.main.fragment_login.view.*
 
-// Typical fragment that calls a MainActivity function
-// when a button is pressed.
 class SplashFragment : Fragment() {
     var listener: OnRosefireLoginButtonPressedListener? = null
 

@@ -49,4 +49,11 @@
     <string name="send_text">Send</string>
     <string name="example_chat_text">Example text here lots of words to show what a long text looks like</string>
     <string name="default_forum_post">Forum Post</string>
+    <string name="default_post_title">Post Title</string>
+    <string name="default_post_tags">Post Tags</string>
+    <string name="default_post_content">Post Content</string>
+    <string name="dialog_post_title">Title</string>
+    <string name="dialog_post_tags">Tags (Comma Separated)</string>
+    <string name="dialog_post_content">Content</string>
+
 </resources>

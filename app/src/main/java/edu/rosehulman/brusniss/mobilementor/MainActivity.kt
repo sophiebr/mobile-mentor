@@ -37,11 +37,6 @@ class MainActivity : AppCompatActivity(),
         val toolbar: Toolbar = findViewById(R.id.toolbar)
         setSupportActionBar(toolbar)
 
-        val fab: FloatingActionButton = findViewById(R.id.fab)
-        fab.setOnClickListener { view ->
-            Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                .setAction("Action", null).show()
-        }
         val drawerLayout: androidx.drawerlayout.widget.DrawerLayout = findViewById(R.id.drawer_layout)
         val navView: NavigationView = findViewById(R.id.nav_view)
         val navController = findNavController(R.id.nav_host_fragment)
@@ -79,7 +74,6 @@ class MainActivity : AppCompatActivity(),
 
     private fun switchToSplashFragment() {
         supportActionBar?.hide()
-        fab.hide()
         val ft = supportFragmentManager.beginTransaction()
         ft.replace(R.id.fragment_container, SplashFragment())
         ft.commit()
@@ -87,7 +81,6 @@ class MainActivity : AppCompatActivity(),
 
     private fun switchToPublicForumFragment(uid: String) {
         supportActionBar?.show()
-        fab.show()
         val ft = supportFragmentManager.beginTransaction()
         ft.replace(R.id.fragment_container, PublicForumFragment.newInstance(uid))
         ft.commit()

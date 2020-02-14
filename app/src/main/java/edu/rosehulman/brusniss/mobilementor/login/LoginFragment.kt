@@ -17,7 +17,6 @@ import kotlinx.android.synthetic.main.fragment_login.view.*
 class LoginFragment : Fragment() {
     private val auth = FirebaseAuth.getInstance()
     lateinit var authStateListener: FirebaseAuth.AuthStateListener
-    private val RC_ROSEFIRE_LOGIN = 1
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -55,7 +54,7 @@ class LoginFragment : Fragment() {
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
-        if (resultCode == Activity.RESULT_OK && requestCode == RC_ROSEFIRE_LOGIN) {
+        if (resultCode == Activity.RESULT_OK && requestCode == Constants.RC_ROSEFIRE_LOGIN) {
             val result = Rosefire.getSignInResultFromIntent(data)
             if (result.isSuccessful) {
                 auth.signInWithCustomToken(result.token)
@@ -72,7 +71,7 @@ class LoginFragment : Fragment() {
     private fun launchLoginUI() {
         val token = getString(R.string.rosefire_token)
         val signInIntent: Intent = Rosefire.getSignInIntent(context, token)
-        startActivityForResult(signInIntent, RC_ROSEFIRE_LOGIN)
+        startActivityForResult(signInIntent, Constants.RC_ROSEFIRE_LOGIN)
     }
 
     override fun onStart() {

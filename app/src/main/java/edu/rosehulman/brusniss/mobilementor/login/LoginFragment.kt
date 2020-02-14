@@ -8,6 +8,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.navigation.fragment.findNavController
 import com.google.firebase.auth.FirebaseAuth
 import edu.rosehulman.brusniss.mobilementor.Constants
 import edu.rosehulman.brusniss.mobilementor.R
@@ -45,9 +46,7 @@ class LoginFragment : Fragment() {
                 Log.d(Constants.TAG, "Phone: ${user.phoneNumber}")
                 Log.d(Constants.TAG, "Photo URL: ${user.photoUrl}")
 
-                //switchToPublicForumFragment(user.uid)
-            } else {
-                //switchToSplashFragment()
+                findNavController().navigate(R.id.nav_pub_forum)
             }
         }
     }

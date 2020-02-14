@@ -55,5 +55,6 @@
     <string name="dialog_post_title">Title</string>
     <string name="dialog_post_tags">Tags (Comma Separated)</string>
     <string name="dialog_post_content">Content</string>
+    <string name="login">Login</string>
 
 </resources>

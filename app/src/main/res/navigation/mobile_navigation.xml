@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/mobile_navigation"
-    app:startDestination="@+id/nav_pub_forum">
+    app:startDestination="@+id/nav_login">
 
     <fragment
         android:id="@+id/nav_profile"
@@ -46,4 +46,14 @@
         android:name="edu.rosehulman.brusniss.mobilementor.settings.BaseSettingsFragment"
         android:label="@string/menu_settings"
         tools:layout="@layout/fragment_gradient_background" />
+
+    <fragment
+        android:id="@+id/nav_login"
+        android:name="edu.rosehulman.brusniss.mobilementor.login.LoginFragment"
+        android:label="@string/login"
+        tools:layout="@layout/fragment_login" >
+        <action
+            android:id="@+id/action_nav_login_to_nav_pub_forum"
+            app:destination="@+id/nav_pub_forum" />
+    </fragment>
 </navigation>

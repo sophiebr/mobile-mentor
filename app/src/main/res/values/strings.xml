@@ -48,4 +48,6 @@
     <string name="version_number">Version 1.0.0</string>
     <string name="send_text">Send</string>
     <string name="example_chat_text">Example text here lots of words to show what a long text looks like</string>
+    <string name="dialog_new_group_title">Group Title</string>
+    <string name="dialog_new_group_code">Group Code</string>
 </resources>

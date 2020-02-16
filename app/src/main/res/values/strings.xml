@@ -52,6 +52,7 @@
     <string name="default_post_title">Post Title</string>
     <string name="default_post_tags">Post Tags</string>
     <string name="default_post_content">Post Content</string>
+    <string name="default_response_content">Response Content</string>
     <string name="dialog_post_title">Title</string>
     <string name="dialog_post_tags">Tags (Comma Separated)</string>
     <string name="dialog_post_content">Content</string>

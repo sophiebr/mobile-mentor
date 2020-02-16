@@ -36,12 +36,12 @@ class ForumPostListAdapter(private val context: Context, private val navControll
                                 layoutManager.scrollToPosition(0)
                             }
                             DocumentChange.Type.REMOVED -> {
-                                val pos = posts.indexOfFirst { post.timestamp == it.timestamp }
+                                val pos = posts.indexOfFirst { post.id == it.id }
                                 posts.removeAt(pos)
                                 notifyItemRemoved(pos)
                             }
                             DocumentChange.Type.MODIFIED -> {
-                                val pos = posts.indexOfFirst { post.timestamp == it.timestamp }
+                                val pos = posts.indexOfFirst { post.id == it.id }
                                 posts[pos] = post
                                 notifyItemChanged(pos)
                             }
@@ -68,5 +68,9 @@ class ForumPostListAdapter(private val context: Context, private val navControll
             putString("responsePath", publicForumRef.path + '/' + posts[position].id + "/response")
         }
         navController.navigate(R.id.nav_forum_post, args)
+    }
+
+    fun addNewPost(forumPostModel: ForumPostModel) {
+        publicForumRef.add(forumPostModel)
     }
 }

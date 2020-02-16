@@ -16,7 +16,6 @@ data class ForumPostModel(var title: String = "How to drop out of Rose?",
                           var tags: List<String> = ArrayList<String>(),
                           var content: String = "I want to leave, somebody help.",
                           @QuestionStatus var questionState: Int = QuestionStatus.UNANSWERED,
-                          var responses: List<ForumResponseModel> = ArrayList<ForumResponseModel>(),
                           var likeCount: Int = 0,
                           var responseCount: Int = 0,
                           var mentorResponseCount: Int = 0) : ViewModel(), Parcelable {

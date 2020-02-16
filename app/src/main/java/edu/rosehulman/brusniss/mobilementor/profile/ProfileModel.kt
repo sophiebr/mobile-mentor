@@ -2,6 +2,7 @@ package edu.rosehulman.brusniss.mobilementor.profile
 
 import android.os.Parcelable
 import androidx.lifecycle.ViewModel
+import com.google.firebase.firestore.DocumentSnapshot
 import kotlinx.android.parcel.Parcelize
 
 @Parcelize
@@ -13,5 +14,11 @@ data class ProfileModel(var name: String = "Slim Shady",
 
     fun hasPermission(@PermissionLevel level: Int): Boolean {
         return permissionLevel >= level
+    }
+
+    companion object {
+        fun fromSnapshot(snapshot: DocumentSnapshot): ProfileModel {
+            return snapshot.toObject(ProfileModel::class.java)!!
+        }
     }
 }

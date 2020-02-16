@@ -13,7 +13,7 @@ class ForumPostListViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView
     fun bind(model: ForumPostModel) {
         itemView.post_title_text.text = model.title
 //        itemView.post_question_text.text = model.content
-//        itemView.post_like_text.text = model.likeCount.toString()
+        itemView.post_like_text.text = model.likeCount.toString()
 //        itemView.post_star_text.text = model.mentorResponseCount.toString()
 //        itemView.post_edit_text.text = model.responseCount.toString()
     }

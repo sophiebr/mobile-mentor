@@ -30,6 +30,12 @@ class ProfileFragment : Fragment() {
             profileView.profile_name_text.text = user.name
             profileView.profile_major_text.text = user.major
             profileView.profile_bio_edit_text.text = user.bio
+            profileView.profile_level.text = when (user.permissionLevel) {
+                PermissionLevel.ADMIN -> getString(R.string.admin)
+                PermissionLevel.MENTOR -> getString(R.string.mentor)
+                PermissionLevel.PROFESSOR -> getString(R.string.prof)
+                else -> getString(R.string.reg)
+            }
         }
         return profileView
     }

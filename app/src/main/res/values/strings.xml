@@ -57,5 +57,9 @@
     <string name="dialog_post_tags">Tags (Comma Separated)</string>
     <string name="dialog_post_content">Content</string>
     <string name="login">Login</string>
+    <string name="admin">ADMIN</string>
+    <string name="mentor">MENTOR</string>
+    <string name="prof">PROFESSOR</string>
+    <string name="reg">REGULAR</string>
 
 </resources>

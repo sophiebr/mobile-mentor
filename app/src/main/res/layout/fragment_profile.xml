@@ -31,7 +31,7 @@
         android:layout_below="@id/profile_name_text"/>
 
     <TextView
-        android:id="@+id/profile_mentor_text"
+        android:id="@+id/profile_level"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/default_mentor_text"
@@ -44,7 +44,7 @@
         android:layout_height="wrap_content"
         android:text="@string/bio_header_text"
         android:textSize="26sp"
-        android:layout_below="@id/profile_mentor_text"/>
+        android:layout_below="@id/profile_level"/>
 
     <TextView
         android:id="@+id/profile_bio_edit_text"

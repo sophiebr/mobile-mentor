@@ -53,7 +53,7 @@ class ForumPostListAdapter(private val context: Context, private val navControll
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ForumPostListViewHolder {
         val view = LayoutInflater.from(context).inflate(R.layout.fragment_forum_row, parent, false)
-        return ForumPostListViewHolder(view)
+        return ForumPostListViewHolder(view, this)
     }
 
     override fun getItemCount(): Int = posts.size

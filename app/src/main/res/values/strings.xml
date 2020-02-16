@@ -63,5 +63,7 @@
     <string name="reg">REGULAR</string>
     <string name="new_post_dialog_title">New Post</string>
     <string name="new_response_dialog_title">New Response</string>
+    <string name="dialog_new_group_title">Group Title</string>
+    <string name="dialog_new_group_code">Group Code</string>
 
 </resources>

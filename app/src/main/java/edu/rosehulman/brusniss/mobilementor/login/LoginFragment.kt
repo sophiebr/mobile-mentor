@@ -8,7 +8,6 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Toolbar
 import androidx.navigation.fragment.findNavController
 import com.google.firebase.auth.FirebaseAuth
 import edu.rosehulman.brusniss.mobilementor.Constants
@@ -47,7 +46,7 @@ class LoginFragment : Fragment() {
                 Log.d(Constants.TAG, "Phone: ${user.phoneNumber}")
                 Log.d(Constants.TAG, "Photo URL: ${user.photoUrl}")
 
-                findNavController().navigate(R.id.nav_pub_forum)
+                findNavController().navigate(R.id.nav_forum)
             }
         }
     }

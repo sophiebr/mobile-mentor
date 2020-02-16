@@ -1,9 +1,6 @@
 package edu.rosehulman.brusniss.mobilementor
 
-import android.app.Activity
-import android.content.Intent
 import android.os.Bundle
-import android.util.Log
 import androidx.navigation.findNavController
 import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.navigateUp
@@ -12,12 +9,7 @@ import androidx.navigation.ui.setupWithNavController
 import com.google.android.material.navigation.NavigationView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.Toolbar
-import android.view.Menu
-import android.view.MenuItem
 import com.google.firebase.auth.FirebaseAuth
-import edu.rosehulman.brusniss.mobilementor.forum.PublicForumFragment
-import edu.rosehulman.brusniss.mobilementor.login.LoginFragment
-import edu.rosehulman.rosefire.Rosefire
 
 class MainActivity : AppCompatActivity() {
 
@@ -36,7 +28,7 @@ class MainActivity : AppCompatActivity() {
         // menu should be considered as top level destinations.
         appBarConfiguration = AppBarConfiguration(
             setOf(
-                R.id.nav_profile, R.id.nav_pub_forum, R.id.nav_rate_my_prof,
+                R.id.nav_profile, R.id.nav_forum, R.id.nav_rate_my_prof,
                 R.id.nav_groups, R.id.nav_chats, R.id.nav_settings
             ), drawerLayout
         )

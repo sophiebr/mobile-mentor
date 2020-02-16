@@ -12,8 +12,8 @@
         tools:layout="@layout/fragment_profile" />
 
     <fragment
-        android:id="@+id/nav_pub_forum"
-        android:name="edu.rosehulman.brusniss.mobilementor.forum.PublicForumFragment"
+        android:id="@+id/nav_forum"
+        android:name="edu.rosehulman.brusniss.mobilementor.forum.ForumFragment"
         android:label="@string/menu_public_forum"
         tools:layout="@layout/fragment_gradient_background" />
 
@@ -54,6 +54,6 @@
         tools:layout="@layout/fragment_login" >
         <action
             android:id="@+id/action_nav_login_to_nav_pub_forum"
-            app:destination="@+id/nav_pub_forum" />
+            app:destination="@+id/nav_forum" />
     </fragment>
 </navigation>

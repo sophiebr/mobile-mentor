@@ -16,7 +16,7 @@ import kotlinx.android.synthetic.main.dialog_add_forum_post.view.*
 import kotlinx.android.synthetic.main.fragment_gradient_background.*
 import kotlinx.android.synthetic.main.fragment_gradient_background.view.*
 
-class PublicForumFragment : Fragment() {
+class ForumFragment : Fragment() {
 
     override fun onCreateView(
         inflater: LayoutInflater,

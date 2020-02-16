@@ -1,17 +1,25 @@
 package edu.rosehulman.brusniss.mobilementor.forum
 
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.google.firebase.firestore.CollectionReference
+import com.google.firebase.firestore.DocumentChange
+import com.google.firebase.firestore.FirebaseFirestore
+import com.google.firebase.firestore.Query
+import edu.rosehulman.brusniss.mobilementor.Constants
 import edu.rosehulman.brusniss.mobilementor.R
 import kotlinx.android.synthetic.main.fragment_forum_post.view.*
+import java.util.ArrayList
 
 class ForumPostFragment : Fragment() {
 
     private var forumPostModel: ForumPostModel? = null
+    private lateinit var respRef: CollectionReference
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -20,11 +28,13 @@ class ForumPostFragment : Fragment() {
     ): View? {
         arguments?.let {
             forumPostModel = it.getParcelable("post")
+            respRef = FirebaseFirestore.getInstance().collection(it.getString("responsePath")!!)
         }
+
         val forumView = inflater.inflate(R.layout.fragment_forum_post, container, false)
         loadPostHeader(forumView.post_question_header)
         forumView.post_response_recycler_view.layoutManager = LinearLayoutManager(context)
-        val adapter = ForumResponseAdapter(context!!, forumPostModel!!.responses)
+        val adapter = ForumResponseAdapter(context!!, respRef)
         forumView.post_response_recycler_view.setHasFixedSize(true)
         forumView.post_response_recycler_view.adapter = adapter
         return forumView

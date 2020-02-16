@@ -26,7 +26,7 @@ class ForumFragment : Fragment() {
         val rootView = inflater.inflate(R.layout.fragment_gradient_background, container, false)
         rootView.gradient_recycler_view.layoutManager = LinearLayoutManager(context)
         val adapter = ForumPostListAdapter(context!!, findNavController(), rootView.gradient_recycler_view.layoutManager as LinearLayoutManager)
-        rootView.gradient_recycler_view.setHasFixedSize(true)
+        //rootView.gradient_recycler_view.setHasFixedSize(true)
         rootView.gradient_recycler_view.adapter = adapter
 
         rootView.add_fab.setOnClickListener() {

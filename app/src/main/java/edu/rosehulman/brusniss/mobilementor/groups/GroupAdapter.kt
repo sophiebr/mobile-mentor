@@ -32,22 +32,19 @@ class GroupAdapter(private val context: Context, private val navController: NavC
                             DocumentChange.Type.ADDED -> {
                                 groups.add(0, group)
                                 notifyItemInserted(0)
-                                Log.d(Constants.TAG, "Inserted")
-                                Log.d(Constants.TAG, "New size: ${groups.size}")
                             }
                             DocumentChange.Type.REMOVED -> {
                                 val pos = groups.indexOfFirst { group.id == it.id }
                                 groups.removeAt(pos)
                                 notifyItemRemoved(pos)
-                                Log.d(Constants.TAG, "Removed")
                             }
                             DocumentChange.Type.MODIFIED -> {
                                 val pos = groups.indexOfFirst { group.id == it.id }
                                 groups[pos] = group
                                 notifyItemChanged(pos)
-                                Log.d(Constants.TAG, "Modded")
                             }
                         }
+                        notifyDataSetChanged()
                     }
                 }
             }

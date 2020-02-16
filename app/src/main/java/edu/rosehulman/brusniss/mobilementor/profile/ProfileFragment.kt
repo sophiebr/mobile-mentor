@@ -26,9 +26,6 @@ class ProfileFragment : Fragment() {
         val profileView = inflater.inflate(R.layout.fragment_profile, container, false)
         Log.d(Constants.TAG, userRef.path)
         userRef.get().addOnSuccessListener {
-            if (it == null) {
-                Log.d(Constants.TAG, "User is null")
-            }
             val user = ProfileModel.fromSnapshot(it)
             profileView.profile_name_text.text = user.name
             profileView.profile_major_text.text = user.major

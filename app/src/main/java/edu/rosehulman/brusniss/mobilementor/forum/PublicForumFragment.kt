@@ -39,7 +39,7 @@ class PublicForumFragment : Fragment() {
     private fun showAddPostDialog(adapter: ForumPostListAdapter) {
         val builder = AlertDialog.Builder(context!!)
         // Set options
-        builder.setTitle("New Post")
+        builder.setTitle(getString(R.string.new_post_dialog_title))
 
         // Content is message, view, or list of items
         val view = LayoutInflater.from(context).inflate(R.layout.dialog_add_forum_post, null, false)

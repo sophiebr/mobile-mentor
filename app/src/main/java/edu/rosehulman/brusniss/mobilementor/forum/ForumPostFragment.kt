@@ -66,7 +66,7 @@ class ForumPostFragment : Fragment() {
     private fun showAddResponseDialog(adapter: ForumResponseAdapter) {
         val builder = AlertDialog.Builder(context!!)
         // Set options
-        builder.setTitle("New Response")
+        builder.setTitle(getString(R.string.new_response_dialog_title))
 
         // Content is message, view, or list of items
         val view = LayoutInflater.from(context).inflate(R.layout.dialog_edit_response, null, false)

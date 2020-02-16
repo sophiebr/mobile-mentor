@@ -61,5 +61,7 @@
     <string name="mentor">MENTOR</string>
     <string name="prof">PROFESSOR</string>
     <string name="reg">REGULAR</string>
+    <string name="new_post_dialog_title">New Post</string>
+    <string name="new_response_dialog_title">New Response</string>
 
 </resources>

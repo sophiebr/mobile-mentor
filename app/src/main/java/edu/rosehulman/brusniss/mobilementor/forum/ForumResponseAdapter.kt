@@ -12,7 +12,7 @@ import com.google.firebase.firestore.Query
 import edu.rosehulman.brusniss.mobilementor.Constants
 import edu.rosehulman.brusniss.mobilementor.R
 
-class ForumResponseAdapter(private val context: Context, respRef: CollectionReference) : RecyclerView.Adapter<ForumResponseViewHolder>() {
+class ForumResponseAdapter(private val context: Context, private val respRef: CollectionReference) : RecyclerView.Adapter<ForumResponseViewHolder>() {
 
     private val responses = ArrayList<ForumResponseModel>()
 
@@ -33,12 +33,12 @@ class ForumResponseAdapter(private val context: Context, respRef: CollectionRefe
                                 notifyItemInserted(0)
                             }
                             DocumentChange.Type.REMOVED -> {
-                                val pos = responses.indexOfFirst { response.timestamp == it.timestamp }
+                                val pos = responses.indexOfFirst { response.id == it.id }
                                 responses.removeAt(pos)
                                 notifyItemRemoved(pos)
                             }
                             DocumentChange.Type.MODIFIED -> {
-                                val pos = responses.indexOfFirst { response.timestamp == it.timestamp }
+                                val pos = responses.indexOfFirst { response.id == it.id }
                                 responses[pos] = response
                                 notifyItemChanged(pos)
                             }
@@ -57,5 +57,9 @@ class ForumResponseAdapter(private val context: Context, respRef: CollectionRefe
 
     override fun onBindViewHolder(holder: ForumResponseViewHolder, position: Int) {
         holder.bind(responses[position])
+    }
+
+    fun addResponse(forumResponseModel: ForumResponseModel) {
+        respRef.add(forumResponseModel)
     }
 }

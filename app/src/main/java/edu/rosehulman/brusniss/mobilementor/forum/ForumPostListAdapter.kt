@@ -26,7 +26,7 @@ class ForumPostListAdapter(private val context: Context, private val navControll
                 if (exception != null) {
                     Log.e(Constants.TAG, "Listen error $exception")
                 } else {
-                    Log.d(Constants.TAG, "In listener")
+                    Log.d(Constants.TAG, "In Forum listener")
                     for (docChange in snapshot!!.documentChanges) {
                         val post = ForumPostModel.fromSnapshot(docChange.document)
                         when (docChange.type) {

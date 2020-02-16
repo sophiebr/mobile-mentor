@@ -47,7 +47,7 @@ class PublicForumFragment : Fragment() {
         builder.setPositiveButton(android.R.string.ok) { _, _ ->
             val title = view.dialog_add_forum_post_title.text.toString()
             val content = view.dialog_add_forum_post_content.text.toString()
-            if (!title.isNullOrBlank() && !title.isNullOrBlank()) {
+            if (!title.isNullOrBlank() && !content.isNullOrBlank()) {
                 adapter.addNewPost(ForumPostModel(title = title, content = content))
             }
         }

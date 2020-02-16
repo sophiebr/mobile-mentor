@@ -20,7 +20,7 @@ class GroupFragment : Fragment() {
         val rootView = inflater.inflate(R.layout.fragment_gradient_background, container, false)
         rootView.gradient_recycler_view.layoutManager = LinearLayoutManager(context)
         val adapter = GroupAdapter(context!!, findNavController())
-        //rootView.gradient_recycler_view.setHasFixedSize(true)
+        rootView.gradient_recycler_view.setHasFixedSize(true)
         rootView.gradient_recycler_view.adapter = adapter
 
         rootView.add_fab.setOnClickListener() {

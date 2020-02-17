@@ -69,4 +69,8 @@ class GroupAdapter(private val context: Context, private val navController: NavC
         }
         navController.navigate(R.id.nav_forum, args)
     }
+
+    fun addNewGroup(groupModel: GroupModel) {
+        groupRef.add(groupModel)
+    }
 }

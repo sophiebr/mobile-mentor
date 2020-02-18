@@ -13,12 +13,14 @@ import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.firestore.Query
 import edu.rosehulman.brusniss.mobilementor.Constants
 import edu.rosehulman.brusniss.mobilementor.R
+import edu.rosehulman.brusniss.mobilementor.groups.Group
 import java.util.*
 
-class ForumPostListAdapter(private val context: Context, private val navController: NavController, forumPath: String, private var layoutManager: LinearLayoutManager) : RecyclerView.Adapter<ForumPostListViewHolder>() {
+class ForumPostListAdapter(private val context: Context, private val navController: NavController, groupPath: String, private var layoutManager: LinearLayoutManager) : RecyclerView.Adapter<ForumPostListViewHolder>() {
 
     private val posts = ArrayList<ForumPostModel>()
-    private val publicForumRef = FirebaseFirestore.getInstance().collection(forumPath);
+    private val publicForumRef = FirebaseFirestore.getInstance().collection("$groupPath/forum");
+    private val groupRef = FirebaseFirestore.getInstance().document(groupPath)
 
     init {
         publicForumRef.orderBy(ForumPostModel.TIMESTAMP_KEY, Query.Direction.ASCENDING)
@@ -72,5 +74,10 @@ class ForumPostListAdapter(private val context: Context, private val navControll
 
     fun addNewPost(forumPostModel: ForumPostModel) {
         publicForumRef.add(forumPostModel)
+        groupRef.get().addOnSuccessListener {
+            val group = Group.fromSnapshot(it)
+            group.messages += 1
+            groupRef.set(group)
+        }
     }
 }

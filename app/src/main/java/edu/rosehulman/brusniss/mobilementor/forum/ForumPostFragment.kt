@@ -8,12 +8,10 @@ import android.view.ViewGroup
 import androidx.appcompat.app.AlertDialog
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.google.firebase.firestore.CollectionReference
-import com.google.firebase.firestore.DocumentChange
-import com.google.firebase.firestore.FirebaseFirestore
-import com.google.firebase.firestore.Query
+import com.google.firebase.firestore.*
 import edu.rosehulman.brusniss.mobilementor.Constants
 import edu.rosehulman.brusniss.mobilementor.R
+import edu.rosehulman.brusniss.mobilementor.User
 import kotlinx.android.synthetic.main.dialog_add_forum_post.view.*
 import kotlinx.android.synthetic.main.dialog_edit_response.view.*
 import kotlinx.android.synthetic.main.fragment_forum_post.view.*
@@ -74,7 +72,8 @@ class ForumPostFragment : Fragment() {
         builder.setPositiveButton(android.R.string.ok) { _, _ ->
             val content = view.dialog_edit_response_content.text.toString()
             if (!content.isNullOrBlank()) {
-                adapter.addResponse(ForumResponseModel(content = content))
+                val authorRef = FirebaseFirestore.getInstance().document(User.firebasePath)
+                adapter.addResponse(ForumResponseModel(content = content, author = authorRef))
             }
         }
         builder.setNegativeButton(android.R.string.cancel, null)

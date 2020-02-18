@@ -12,11 +12,12 @@ import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
 import edu.rosehulman.brusniss.mobilementor.Constants
 import edu.rosehulman.brusniss.mobilementor.R
+import edu.rosehulman.brusniss.mobilementor.User
 import kotlinx.android.synthetic.main.fragment_profile.view.*
 
 class ProfileFragment : Fragment() {
 
-    private val userRef = FirebaseFirestore.getInstance().document(Constants.USER_PATH + "/" + FirebaseAuth.getInstance().currentUser?.uid)
+    private val userRef = FirebaseFirestore.getInstance().document(User.firebasePath)
 
     override fun onCreateView(
         inflater: LayoutInflater,

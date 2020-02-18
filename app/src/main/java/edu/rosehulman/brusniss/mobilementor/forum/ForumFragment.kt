@@ -11,8 +11,10 @@ import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.google.firebase.firestore.DocumentSnapshot
+import com.google.firebase.firestore.FirebaseFirestore
 import edu.rosehulman.brusniss.mobilementor.Constants
 import edu.rosehulman.brusniss.mobilementor.R
+import edu.rosehulman.brusniss.mobilementor.User
 import kotlinx.android.synthetic.main.app_bar_main.*
 import kotlinx.android.synthetic.main.dialog_add_forum_post.view.*
 import kotlinx.android.synthetic.main.fragment_gradient_background.*
@@ -55,7 +57,8 @@ class ForumFragment : Fragment() {
             val title = view.dialog_add_forum_post_title.text.toString()
             val content = view.dialog_add_forum_post_content.text.toString()
             if (!title.isNullOrBlank() && !content.isNullOrBlank()) {
-                adapter.addNewPost(ForumPostModel(title = title, content = content))
+                val authorRef = FirebaseFirestore.getInstance().document(User.firebasePath)
+                adapter.addNewPost(ForumPostModel(title = title, content = content, author = authorRef))
             }
         }
         builder.setNegativeButton(android.R.string.cancel, null)

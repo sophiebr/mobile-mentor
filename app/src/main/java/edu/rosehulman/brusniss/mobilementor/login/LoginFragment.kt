@@ -12,6 +12,7 @@ import androidx.navigation.fragment.findNavController
 import com.google.firebase.auth.FirebaseAuth
 import edu.rosehulman.brusniss.mobilementor.Constants
 import edu.rosehulman.brusniss.mobilementor.R
+import edu.rosehulman.brusniss.mobilementor.User
 import edu.rosehulman.rosefire.Rosefire
 import kotlinx.android.synthetic.main.fragment_login.view.*
 
@@ -40,12 +41,7 @@ class LoginFragment : Fragment() {
             val user = auth.currentUser
             Log.d(Constants.TAG, "In auth listener, user = $user")
             if (user != null) {
-                Log.d(Constants.TAG, "UID: ${user.uid}")
-                Log.d(Constants.TAG, "Name: ${user.displayName}")
-                Log.d(Constants.TAG, "Email: ${user.email}")
-                Log.d(Constants.TAG, "Phone: ${user.phoneNumber}")
-                Log.d(Constants.TAG, "Photo URL: ${user.photoUrl}")
-
+                User.set(Constants.USER_PATH + "/" + user.uid)
                 findNavController().navigate(R.id.nav_forum)
             }
         }

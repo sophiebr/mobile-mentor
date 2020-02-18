@@ -6,4 +6,5 @@ object Constants {
     const val GROUP_PATH = "/group"
     const val RC_ROSEFIRE_LOGIN = 1
     const val USER_PATH = "/user"
+    const val RATE_PROF_PATH = "/professor"
 }

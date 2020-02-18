@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="16dp">
+
+    <TextView
+        android:id="@+id/new_post_dialog_title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/dialog_post_title" />
+
+    <EditText
+        android:id="@+id/dialog_add_forum_post_title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="@string/default_post_title"
+        android:inputType="textCapWords"
+        android:textSize="24sp"
+        android:background="@color/grayDialogColor"
+        android:padding="5dp"
+        android:layout_marginBottom="10dp"
+        />
+
+    <TextView
+        android:id="@+id/new_post_dialog_tags"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/dialog_post_tags" />
+
+    <EditText
+        android:id="@+id/dialog_add_forum_post_tags"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="@string/default_post_tags"
+        android:inputType="textCapWords"
+        android:textSize="24sp"
+        android:background="@color/grayDialogColor"
+        android:padding="5dp"
+        android:layout_marginBottom="10dp"
+        />
+
+    <TextView
+        android:id="@+id/new_post_dialog_content"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/dialog_post_content" />
+
+    <EditText
+        android:id="@+id/dialog_add_forum_post_content"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="@string/default_post_content"
+        android:inputType="textCapSentences"
+        android:textSize="24sp"
+        android:padding="5dp"
+        android:layout_marginBottom="10dp"
+        />
+
+</LinearLayout>

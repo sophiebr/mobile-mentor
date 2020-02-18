@@ -12,7 +12,7 @@
         android:background="@android:color/darker_gray"/>
 
     <LinearLayout
-        android:id="@+id/post_quesiton_header"
+        android:id="@+id/post_question_header"
         android:orientation="vertical"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -100,7 +100,7 @@
                     app:srcCompat="@drawable/ic_edit" />
 
                 <TextView
-                    android:id="@+id/post_edit_text"
+                    android:id="@+id/post_response_text"
                     android:layout_marginStart="5dp"
                     android:layout_marginEnd="10dp"
                     android:textSize="18sp"
@@ -130,11 +130,11 @@
                 android:layout_width="30dp"
                 android:layout_height="30dp"
                 android:layout_centerVertical="true"
-                android:layout_toStartOf="@id/response_author_name"
+                android:layout_toStartOf="@id/post_author_name"
                 app:srcCompat="@drawable/mobilementoricon" />
 
             <TextView
-                android:id="@+id/response_author_name"
+                android:id="@+id/post_author_name"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/default_author_name"
@@ -149,8 +149,19 @@
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/post_response_recycler_view"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="match_parent"
         android:layout_margin="10dp"
-        android:layout_below="@id/post_quesiton_header"/>
+        android:layout_below="@id/post_question_header"/>
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/add_fab"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentEnd="true"
+        android:layout_margin="@dimen/fab_margin"
+        android:backgroundTint="@color/addButtonColor"
+        app:borderWidth="2dp"
+        app:srcCompat="@drawable/ic_add" />
 
 </RelativeLayout>

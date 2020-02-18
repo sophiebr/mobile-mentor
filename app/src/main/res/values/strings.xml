@@ -48,6 +48,22 @@
     <string name="version_number">Version 1.0.0</string>
     <string name="send_text">Send</string>
     <string name="example_chat_text">Example text here lots of words to show what a long text looks like</string>
+    <string name="default_forum_post">Forum Post</string>
+    <string name="default_post_title">Post Title</string>
+    <string name="default_post_tags">Post Tags</string>
+    <string name="default_post_content">Post Content</string>
+    <string name="default_response_content">Response Content</string>
+    <string name="dialog_post_title">Title</string>
+    <string name="dialog_post_tags">Tags (Comma Separated)</string>
+    <string name="dialog_post_content">Content</string>
+    <string name="login">Login</string>
+    <string name="admin">ADMIN</string>
+    <string name="mentor">MENTOR</string>
+    <string name="prof">PROFESSOR</string>
+    <string name="reg">REGULAR</string>
+    <string name="new_post_dialog_title">New Post</string>
+    <string name="new_response_dialog_title">New Response</string>
     <string name="dialog_new_group_title">Group Title</string>
     <string name="dialog_new_group_code">Group Code</string>
+
 </resources>

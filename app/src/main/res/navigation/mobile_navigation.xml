@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/mobile_navigation"
-    app:startDestination="@+id/nav_pub_forum">
+    app:startDestination="@+id/nav_forum">
 
     <fragment
         android:id="@+id/nav_profile"
@@ -12,10 +12,16 @@
         tools:layout="@layout/fragment_profile" />
 
     <fragment
-        android:id="@+id/nav_pub_forum"
-        android:name="edu.rosehulman.brusniss.mobilementor.forum.PublicForumFragment"
+        android:id="@+id/nav_forum"
+        android:name="edu.rosehulman.brusniss.mobilementor.forum.ForumFragment"
         android:label="@string/menu_public_forum"
         tools:layout="@layout/fragment_gradient_background" />
+
+    <fragment
+        android:id="@+id/nav_forum_post"
+        android:name="edu.rosehulman.brusniss.mobilementor.forum.ForumPostFragment"
+        android:label="@string/default_forum_post"
+        tools:layout="@layout/fragment_forum_post" />
 
     <fragment
         android:id="@+id/nav_rate_my_prof"
@@ -40,4 +46,14 @@
         android:name="edu.rosehulman.brusniss.mobilementor.settings.BaseSettingsFragment"
         android:label="@string/menu_settings"
         tools:layout="@layout/fragment_gradient_background" />
+
+    <fragment
+        android:id="@+id/nav_login"
+        android:name="edu.rosehulman.brusniss.mobilementor.login.LoginFragment"
+        android:label="@string/login"
+        tools:layout="@layout/fragment_login" >
+        <action
+            android:id="@+id/action_nav_login_to_nav_pub_forum"
+            app:destination="@+id/nav_forum" />
+    </fragment>
 </navigation>

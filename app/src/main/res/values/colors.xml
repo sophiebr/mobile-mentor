@@ -7,4 +7,6 @@
     <color name="menuColor">#B42BB7</color>
     <color name="colorRatingProgress">#707070</color>
     <color name="greyCardBackground">#E2E2E2</color>
+    <color name="addButtonColor">#C1C1C1</color>
+    <color name="grayDialogColor">#CCCCCC</color>
 </resources>

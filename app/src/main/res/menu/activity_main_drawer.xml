@@ -9,7 +9,7 @@
             android:icon="@drawable/ic_menu_profile"
             android:title="@string/menu_profile"/>
         <item
-            android:id="@+id/nav_pub_forum"
+            android:id="@+id/nav_forum"
             android:icon="@drawable/ic_forum"
             android:title="@string/menu_public_forum"/>
         <item
@@ -29,7 +29,7 @@
             android:icon="@drawable/ic_settings"
             android:title="@string/menu_settings"/>
         <item
-            android:id="@+id/nav_logout"
+            android:id="@+id/nav_login"
             android:icon="@drawable/ic_logout"
             android:title="@string/menu_logout"/>
     </group>

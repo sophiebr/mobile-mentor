@@ -15,10 +15,10 @@ import edu.rosehulman.brusniss.mobilementor.Constants
 import edu.rosehulman.brusniss.mobilementor.R
 import java.util.ArrayList
 
-class ForumPostListAdapter(private val context: Context, private val navController: NavController, private var layoutManager: LinearLayoutManager) : RecyclerView.Adapter<ForumPostListViewHolder>() {
+class ForumPostListAdapter(private val context: Context, private val navController: NavController, forumPath: String, private var layoutManager: LinearLayoutManager) : RecyclerView.Adapter<ForumPostListViewHolder>() {
 
     private val posts = ArrayList<ForumPostModel>()
-    private val publicForumRef = FirebaseFirestore.getInstance().collection(Constants.PUBLIC_FORUM_PATH);
+    private val publicForumRef = FirebaseFirestore.getInstance().collection(forumPath);
 
     init {
         publicForumRef.orderBy(ForumPostModel.TIMESTAMP_KEY, Query.Direction.ASCENDING)

@@ -23,9 +23,13 @@ class ForumFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
+        var forumPath = Constants.PUBLIC_FORUM_PATH
+        arguments?.let {
+            forumPath = it.getString("groupPath")!! + "/forum"
+        }
         val rootView = inflater.inflate(R.layout.fragment_gradient_background, container, false)
         rootView.gradient_recycler_view.layoutManager = LinearLayoutManager(context)
-        val adapter = ForumPostListAdapter(context!!, findNavController(), rootView.gradient_recycler_view.layoutManager as LinearLayoutManager)
+        val adapter = ForumPostListAdapter(context!!, findNavController(), forumPath, rootView.gradient_recycler_view.layoutManager as LinearLayoutManager)
         rootView.gradient_recycler_view.setHasFixedSize(true)
         rootView.gradient_recycler_view.adapter = adapter
 

@@ -9,8 +9,6 @@ import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import edu.rosehulman.brusniss.mobilementor.R
-import edu.rosehulman.brusniss.mobilementor.forum.ForumPostModel
-import kotlinx.android.synthetic.main.dialog_add_forum_post.view.*
 import kotlinx.android.synthetic.main.dialog_add_new_group.view.*
 import kotlinx.android.synthetic.main.fragment_gradient_background.view.*
 

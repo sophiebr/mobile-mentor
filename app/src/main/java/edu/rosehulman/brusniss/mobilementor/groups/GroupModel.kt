@@ -1,12 +1,14 @@
 package edu.rosehulman.brusniss.mobilementor.groups
 
 import android.os.Parcelable
+import com.google.firebase.firestore.DocumentReference
 import com.google.firebase.firestore.DocumentSnapshot
 import com.google.firebase.firestore.Exclude
 import kotlinx.android.parcel.Parcelize
+import kotlinx.android.parcel.RawValue
 
 @Parcelize
-data class GroupModel(var name: String = "", var code: Int = 0) : Parcelable {
+data class GroupModel(var name: String = "", var group: @RawValue DocumentReference? = null, var messages: Int = 0) : Parcelable {
     @get:Exclude
     var id = ""
 

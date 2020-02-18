@@ -12,11 +12,12 @@ import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.firestore.Query
 import edu.rosehulman.brusniss.mobilementor.Constants
 import edu.rosehulman.brusniss.mobilementor.R
+import edu.rosehulman.brusniss.mobilementor.User
 
 class GroupAdapter(private val context: Context, private val navController: NavController) : RecyclerView.Adapter<GroupViewHolder>() {
 
     private val groups = ArrayList<GroupModel>()
-    private val groupRef = FirebaseFirestore.getInstance().collection(Constants.GROUP_PATH)
+    private val groupRef = FirebaseFirestore.getInstance().collection(User.firebasePath + "/groups")
 
     init {
         groupRef.orderBy(GroupModel.NAME_KEY, Query.Direction.ASCENDING)
@@ -65,7 +66,7 @@ class GroupAdapter(private val context: Context, private val navController: NavC
 
     fun navigateToForum(pos: Int) {
         val args = Bundle().apply {
-            putString("groupPath", groupRef.path + '/' + groups[pos].id)
+            putString("groupPath", groups[pos].group?.path)
             putString("forumName", groups[pos].name)
         }
         navController.navigate(R.id.nav_forum, args)

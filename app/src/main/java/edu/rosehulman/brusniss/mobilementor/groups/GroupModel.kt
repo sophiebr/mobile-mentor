@@ -8,7 +8,7 @@ import kotlinx.android.parcel.Parcelize
 import kotlinx.android.parcel.RawValue
 
 @Parcelize
-data class GroupModel(var name: String = "", var group: @RawValue DocumentReference? = null, var messages: Int = 0) : Parcelable {
+data class GroupModel(var name: String = "", var group: @RawValue DocumentReference? = null, var messagesSeen: Int = 0) : Parcelable {
     @get:Exclude
     var id = ""
 

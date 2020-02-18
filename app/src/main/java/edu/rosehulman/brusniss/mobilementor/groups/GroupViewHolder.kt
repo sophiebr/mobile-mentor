@@ -15,7 +15,10 @@ class GroupViewHolder(itemView: View, adapter: GroupAdapter) : RecyclerView.View
     }
 
     fun bind(model: GroupModel) {
-        Log.d(Constants.TAG, "Binding group")
         itemView.group_title_text.text = model.name
+        model.group?.get()?.addOnSuccessListener {
+            val group = Group.fromSnapshot(it)
+            itemView.group_num_notifications_count_text.text = (group.messages - model.messagesSeen).toString()
+        }
     }
 }

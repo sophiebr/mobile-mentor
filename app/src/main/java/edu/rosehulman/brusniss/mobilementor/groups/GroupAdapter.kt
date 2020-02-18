@@ -53,14 +53,12 @@ class GroupAdapter(private val context: Context, private val navController: NavC
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): GroupViewHolder {
         val view = LayoutInflater.from(context).inflate(R.layout.fragment_group_forum_summary_row, parent, false)
-        Log.d(Constants.TAG, "Making holder")
         return GroupViewHolder(view, this)
     }
 
     override fun getItemCount(): Int = groups.size
 
     override fun onBindViewHolder(holder: GroupViewHolder, position: Int) {
-        Log.d(Constants.TAG, "Going to bind")
         holder.bind(groups[position])
     }
 

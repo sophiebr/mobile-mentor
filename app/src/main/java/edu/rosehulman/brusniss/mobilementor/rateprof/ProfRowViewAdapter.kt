@@ -15,17 +15,17 @@ import edu.rosehulman.brusniss.mobilementor.R
 
 class ProfRowViewAdapter(private val context: Context, private val navController: NavController) : RecyclerView.Adapter<ProfRowViewHolder>() {
 
-    private val professors = ArrayList<ProfRowViewModel>()
+    private val professors = ArrayList<ProfModel>()
     private val profRef = FirebaseFirestore.getInstance().collection(Constants.RATE_PROF_PATH);
     init {
-        profRef.orderBy(ProfRowViewModel.NAME_KEY, Query.Direction.ASCENDING)
+        profRef.orderBy(ProfModel.NAME_KEY, Query.Direction.ASCENDING)
             .addSnapshotListener() { snapshot, exception ->
                 if (exception != null) {
                     Log.e(Constants.TAG, "Listen error $exception")
                 } else {
                     Log.d(Constants.TAG, "In Professor listener")
                     for (docChange in snapshot!!.documentChanges) {
-                        val prof = ProfRowViewModel.fromSnapshot(docChange.document)
+                        val prof = ProfModel.fromSnapshot(docChange.document)
                         when (docChange.type) {
                             DocumentChange.Type.ADDED -> {
                                 professors.add(0, prof)

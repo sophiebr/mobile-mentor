@@ -66,6 +66,7 @@ class GroupAdapter(private val context: Context, private val navController: NavC
     fun navigateToForum(pos: Int) {
         val args = Bundle().apply {
             putString("groupPath", groupRef.path + '/' + groups[pos].id)
+            putString("forumName", groups[pos].name)
         }
         navController.navigate(R.id.nav_forum, args)
     }

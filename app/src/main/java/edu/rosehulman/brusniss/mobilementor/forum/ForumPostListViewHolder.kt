@@ -1,10 +1,7 @@
 package edu.rosehulman.brusniss.mobilementor.forum
 
-import android.provider.SyncStateContract
-import android.util.Log
 import android.view.View
 import androidx.recyclerview.widget.RecyclerView
-import edu.rosehulman.brusniss.mobilementor.Constants
 import edu.rosehulman.brusniss.mobilementor.R
 import kotlinx.android.synthetic.main.fragment_forum_row.view.*
 

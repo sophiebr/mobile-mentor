@@ -3,7 +3,6 @@ package edu.rosehulman.brusniss.mobilementor.groups
 import android.os.Parcelable
 import com.google.firebase.firestore.DocumentSnapshot
 import com.google.firebase.firestore.Exclude
-import edu.rosehulman.brusniss.mobilementor.forum.ForumPostModel
 import kotlinx.android.parcel.Parcelize
 
 @Parcelize

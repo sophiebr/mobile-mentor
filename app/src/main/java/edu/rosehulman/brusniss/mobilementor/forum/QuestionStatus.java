@@ -2,7 +2,6 @@ package edu.rosehulman.brusniss.mobilementor.forum;
 
 import androidx.annotation.IntDef;
 
-import edu.rosehulman.brusniss.mobilementor.profile.PermissionLevel;
 import kotlin.annotation.AnnotationRetention;
 import kotlin.annotation.Retention;
 

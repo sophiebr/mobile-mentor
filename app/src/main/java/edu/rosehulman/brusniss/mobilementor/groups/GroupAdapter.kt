@@ -67,6 +67,11 @@ class GroupAdapter(private val context: Context, private val navController: NavC
             putString("groupPath", groups[pos].group?.path)
             putString("forumName", groups[pos].name)
         }
+        groups[pos].group?.get()?.addOnSuccessListener {
+            val group = Group.fromSnapshot(it)
+            groups[pos].messagesSeen = group.messages
+            groupRef.document(groups[pos].id).set(groups[pos])
+        }
         navController.navigate(R.id.nav_forum, args)
     }
 

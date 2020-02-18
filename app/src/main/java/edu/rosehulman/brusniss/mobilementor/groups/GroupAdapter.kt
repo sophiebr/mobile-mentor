@@ -67,6 +67,7 @@ class GroupAdapter(private val context: Context, private val navController: NavC
         val args = Bundle().apply {
             putString("groupPath", groups[pos].group?.path)
             putString("forumName", groups[pos].name)
+            putString("userGroup", "${groupRef.path}/${groups[pos].id}")
         }
         groups[pos].group?.get()?.addOnSuccessListener {
             val group = Group.fromSnapshot(it)

@@ -16,6 +16,7 @@ import edu.rosehulman.brusniss.mobilementor.Constants
 import edu.rosehulman.brusniss.mobilementor.R
 import edu.rosehulman.brusniss.mobilementor.User
 import edu.rosehulman.brusniss.mobilementor.groups.Group
+import edu.rosehulman.brusniss.mobilementor.groups.GroupModel
 import edu.rosehulman.brusniss.mobilementor.profile.PermissionLevel
 import edu.rosehulman.brusniss.mobilementor.profile.ProfileModel
 import kotlinx.android.synthetic.main.dialog_edit_response.view.*
@@ -27,6 +28,7 @@ class ForumPostFragment : Fragment() {
     private lateinit var respRef: CollectionReference
     private lateinit var postRef: DocumentReference
     private lateinit var groupRef: DocumentReference
+    private lateinit var userGroupRef: DocumentReference
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -38,6 +40,7 @@ class ForumPostFragment : Fragment() {
             respRef = FirebaseFirestore.getInstance().collection(it.getString("postPath")!! + "/response")
             postRef = FirebaseFirestore.getInstance().document(it.getString("postPath")!!)
             groupRef = FirebaseFirestore.getInstance().document(it.getString("groupPath")!!)
+            userGroupRef = FirebaseFirestore.getInstance().document((it.getString("userGroup")!!))
         }
 
         val forumView = inflater.inflate(R.layout.fragment_forum_post, container, false)
@@ -114,6 +117,12 @@ class ForumPostFragment : Fragment() {
                     val group = Group.fromSnapshot(it)
                     group.messages += 1
                     groupRef.set(group)
+
+                    userGroupRef.get().addOnSuccessListener {
+                        val model = GroupModel.fromSnapshot(it)
+                        model.messagesSeen += 1
+                        userGroupRef.set(model)
+                    }
                 }
             }
         }

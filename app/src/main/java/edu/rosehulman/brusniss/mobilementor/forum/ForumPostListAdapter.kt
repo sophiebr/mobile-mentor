@@ -14,13 +14,15 @@ import com.google.firebase.firestore.Query
 import edu.rosehulman.brusniss.mobilementor.Constants
 import edu.rosehulman.brusniss.mobilementor.R
 import edu.rosehulman.brusniss.mobilementor.groups.Group
+import edu.rosehulman.brusniss.mobilementor.groups.GroupModel
 import java.util.*
 
-class ForumPostListAdapter(private val context: Context, private val navController: NavController, groupPath: String, private var layoutManager: LinearLayoutManager) : RecyclerView.Adapter<ForumPostListViewHolder>() {
+class ForumPostListAdapter(private val context: Context, private val navController: NavController, groupPath: String, userGroup: String, private var layoutManager: LinearLayoutManager) : RecyclerView.Adapter<ForumPostListViewHolder>() {
 
     private val posts = ArrayList<ForumPostModel>()
     private val publicForumRef = FirebaseFirestore.getInstance().collection("$groupPath/forum");
     private val groupRef = FirebaseFirestore.getInstance().document(groupPath)
+    private val userGroupRef = FirebaseFirestore.getInstance().document(userGroup)
 
     init {
         publicForumRef.orderBy(ForumPostModel.TIMESTAMP_KEY, Query.Direction.ASCENDING)
@@ -69,6 +71,7 @@ class ForumPostListAdapter(private val context: Context, private val navControll
             putParcelable("post", posts[position])
             putString("postPath", "${publicForumRef.path}/${posts[position].id}")
             putString("groupPath", groupRef.path)
+            putString("userGroup", userGroupRef.path)
         }
         navController.navigate(R.id.nav_forum_post, args)
     }
@@ -79,6 +82,12 @@ class ForumPostListAdapter(private val context: Context, private val navControll
             val group = Group.fromSnapshot(it)
             group.messages += 1
             groupRef.set(group)
+
+            userGroupRef.get().addOnSuccessListener {
+                val model = GroupModel.fromSnapshot(it)
+                model.messagesSeen += 1
+                userGroupRef.set(model)
+            }
         }
     }
 }

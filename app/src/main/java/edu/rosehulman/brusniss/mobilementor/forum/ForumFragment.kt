@@ -24,13 +24,15 @@ class ForumFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         var groupPath = Constants.PUBLIC_FORUM_PATH
+        var userGroup: String = ""
         arguments?.let {
             groupPath = it.getString("groupPath")!!
+            userGroup = it.getString("userGroup")!!
             activity?.findViewById<Toolbar>(R.id.toolbar)?.title = it.getString("forumName")!! + " Forum"
         }
         val rootView = inflater.inflate(R.layout.fragment_gradient_background, container, false)
         rootView.gradient_recycler_view.layoutManager = LinearLayoutManager(context)
-        val adapter = ForumPostListAdapter(context!!, findNavController(), groupPath, rootView.gradient_recycler_view.layoutManager as LinearLayoutManager)
+        val adapter = ForumPostListAdapter(context!!, findNavController(), groupPath, userGroup, rootView.gradient_recycler_view.layoutManager as LinearLayoutManager)
         rootView.gradient_recycler_view.setHasFixedSize(true)
         rootView.gradient_recycler_view.adapter = adapter
 
@@ -52,7 +54,7 @@ class ForumFragment : Fragment() {
         builder.setPositiveButton(android.R.string.ok) { _, _ ->
             val title = view.dialog_add_forum_post_title.text.toString()
             val content = view.dialog_add_forum_post_content.text.toString()
-            if (!title.isNullOrBlank() && !content.isNullOrBlank()) {
+            if (!title.isBlank() && !content.isBlank()) {
                 val authorRef = FirebaseFirestore.getInstance().document(User.firebasePath)
                 adapter.addNewPost(ForumPostModel(title = title, content = content, author = authorRef))
             }

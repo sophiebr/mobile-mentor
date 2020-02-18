@@ -5,6 +5,7 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.LinearLayout
 import androidx.appcompat.app.AlertDialog
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -12,9 +13,9 @@ import com.google.firebase.firestore.*
 import edu.rosehulman.brusniss.mobilementor.Constants
 import edu.rosehulman.brusniss.mobilementor.R
 import edu.rosehulman.brusniss.mobilementor.User
+import edu.rosehulman.brusniss.mobilementor.profile.PermissionLevel
 import kotlinx.android.synthetic.main.dialog_edit_response.view.*
 import kotlinx.android.synthetic.main.fragment_forum_post.view.*
-import java.util.ArrayList
 
 class ForumPostFragment : Fragment() {
 
@@ -41,7 +42,7 @@ class ForumPostFragment : Fragment() {
         forumView.post_response_recycler_view.adapter = adapter
 
         forumView.add_fab.setOnClickListener { _ ->
-            showAddResponseDialog(adapter)
+            showAddResponseDialog(adapter, forumView.post_question_header)
         }
 
         return forumView
@@ -70,7 +71,7 @@ class ForumPostFragment : Fragment() {
         }
     }
 
-    private fun showAddResponseDialog(adapter: ForumResponseAdapter) {
+    private fun showAddResponseDialog(adapter: ForumResponseAdapter, header: LinearLayout) {
         val builder = AlertDialog.Builder(context!!)
         // Set options
         builder.setTitle(getString(R.string.new_response_dialog_title))
@@ -84,6 +85,19 @@ class ForumPostFragment : Fragment() {
                 val authorRef = FirebaseFirestore.getInstance().document(User.firebasePath)
                 Log.d(Constants.TAG, authorRef.path)
                 adapter.addResponse(ForumResponseModel(content = content, author = authorRef))
+
+                forumPostModel!!.responseCount += 1
+                header.post_response_text.text = forumPostModel?.responseCount.toString()
+
+                if (User.permissionLevel > PermissionLevel.REGULAR) {
+                    forumPostModel!!.mentorResponseCount += 1
+                    if (forumPostModel!!.questionState != QuestionStatus.NOTIFICATION) {
+                        forumPostModel!!.questionState = QuestionStatus.MENTOR_ANSWERED
+                        header.post_response_status.setImageResource(R.drawable.ic_answered)
+                    }
+                    header.post_star_text.text = forumPostModel!!.mentorResponseCount.toString()
+                }
+                postRef.set(forumPostModel!!)
             }
         }
         builder.setNegativeButton(android.R.string.cancel, null)

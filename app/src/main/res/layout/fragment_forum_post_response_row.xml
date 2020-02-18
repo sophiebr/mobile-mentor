@@ -67,11 +67,11 @@
                     android:layout_width="30dp"
                     android:layout_height="30dp"
                     android:layout_centerVertical="true"
-                    android:layout_toStartOf="@id/response_author_name"
+                    android:layout_toStartOf="@id/post_author_name"
                     app:srcCompat="@drawable/mobilementoricon" />
 
                 <TextView
-                    android:id="@+id/response_author_name"
+                    android:id="@+id/post_author_name"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@string/default_author_name"

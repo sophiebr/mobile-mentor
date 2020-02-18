@@ -14,6 +14,7 @@ import edu.rosehulman.brusniss.mobilementor.Constants
 import edu.rosehulman.brusniss.mobilementor.R
 import edu.rosehulman.brusniss.mobilementor.User
 import edu.rosehulman.brusniss.mobilementor.profile.PermissionLevel
+import edu.rosehulman.brusniss.mobilementor.profile.ProfileModel
 import kotlinx.android.synthetic.main.dialog_edit_response.view.*
 import kotlinx.android.synthetic.main.fragment_forum_post.view.*
 
@@ -55,7 +56,13 @@ class ForumPostFragment : Fragment() {
             QuestionStatus.NOTIFICATION -> R.drawable.ic_forum_notification
             else ->  R.drawable.ic_hourglass
         })
-        // TODO: UserModel to grab name and picture out of DocumentReference
+        postRef.get().addOnSuccessListener {
+            ForumPostModel.fromSnapshot(it).author?.get()?.addOnSuccessListener {
+                val profile = ProfileModel.fromSnapshot(it)
+                header.post_author_name.text = profile.name
+                //TODO: picture
+            }
+        }
         // TODO: Add tags
         header.post_question_text.text = forumPostModel?.content
         header.post_like_text.text = forumPostModel?.likeCount.toString()

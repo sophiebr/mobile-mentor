@@ -62,11 +62,11 @@ class ForumPostFragment : Fragment() {
         header.post_star_text.text = forumPostModel?.mentorResponseCount.toString()
 
         header.forum_like_image.setOnClickListener {
-            Log.d(Constants.TAG, "Like!")
-            forumPostModel!!.likeCount += 1
-            Log.d(Constants.TAG, forumPostModel?.likeCount.toString())
-            header.post_like_text.text = forumPostModel?.likeCount.toString()
-            postRef.set(forumPostModel!!)
+            if (forumPostModel?.author?.path != User.firebasePath) {
+                forumPostModel!!.likeCount += 1
+                header.post_like_text.text = forumPostModel?.likeCount.toString()
+                postRef.set(forumPostModel!!)
+            }
         }
     }
 
@@ -82,6 +82,7 @@ class ForumPostFragment : Fragment() {
             val content = view.dialog_edit_response_content.text.toString()
             if (!content.isNullOrBlank()) {
                 val authorRef = FirebaseFirestore.getInstance().document(User.firebasePath)
+                Log.d(Constants.TAG, authorRef.path)
                 adapter.addResponse(ForumResponseModel(content = content, author = authorRef))
             }
         }

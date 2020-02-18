@@ -5,14 +5,19 @@ import edu.rosehulman.brusniss.mobilementor.profile.PermissionLevel
 import edu.rosehulman.brusniss.mobilementor.profile.ProfileModel
 
 object User {
-    @PermissionLevel var permissionLevel: Int = 0
+    @PermissionLevel var permissionLevel: Int = PermissionLevel.REGULAR
     var firebasePath: String = ""
 
     fun set(firebasePath: String) {
         val userRef = FirebaseFirestore.getInstance().document(firebasePath)
         userRef.get().addOnSuccessListener {
-            val user = ProfileModel.fromSnapshot(it)
-            permissionLevel = user.permissionLevel
+            permissionLevel = if (it.exists()) {
+                val user = ProfileModel.fromSnapshot(it)
+                user.permissionLevel
+            } else {
+                userRef.set(ProfileModel())
+                PermissionLevel.REGULAR
+            }
             this.firebasePath = firebasePath
         }
     }

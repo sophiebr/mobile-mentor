@@ -89,7 +89,7 @@ class ForumPostFragment : Fragment() {
                 forumPostModel!!.responseCount += 1
                 header.post_response_text.text = forumPostModel?.responseCount.toString()
 
-                if (User.permissionLevel > PermissionLevel.REGULAR) {
+                if (User.permissionLevel > PermissionLevel.REGULAR && forumPostModel?.author?.path != User.firebasePath) {
                     forumPostModel!!.mentorResponseCount += 1
                     if (forumPostModel!!.questionState != QuestionStatus.NOTIFICATION) {
                         forumPostModel!!.questionState = QuestionStatus.MENTOR_ANSWERED

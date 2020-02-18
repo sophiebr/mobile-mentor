@@ -9,5 +9,6 @@ class ProfRowViewHolder(itemView: View, adapter: ProfRowViewAdapter) : RecyclerV
     fun bind(model: ProfRowViewModel) {
         itemView.rate_professor_name.text = model.name
         itemView.rate_professor_department.text = model.department
+        itemView.rating.rating = model.rating
     }
 }

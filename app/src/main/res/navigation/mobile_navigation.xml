@@ -30,6 +30,12 @@
         tools:layout="@layout/fragment_gradient_background" />
 
     <fragment
+        android:id="@+id/nav_rate_individual_prof"
+        android:name="edu.rosehulman.brusniss.mobilementor.rateprof.IndiviualProfessorFragment"
+        android:label="@string/menu_rate_my_professor"
+        tools:layout="@layout/fragment_rate_professor_individual_review" />
+
+    <fragment
         android:id="@+id/nav_groups"
         android:name="edu.rosehulman.brusniss.mobilementor.groups.GroupFragment"
         android:label="@string/menu_groups"

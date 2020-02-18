@@ -1,6 +1,7 @@
 package edu.rosehulman.brusniss.mobilementor.rateprof
 
 import android.content.Context
+import android.os.Bundle
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.ViewGroup
@@ -55,5 +56,13 @@ class ProfRowViewAdapter(private val context: Context, private val navController
 
     override fun onBindViewHolder(holder: ProfRowViewHolder, position: Int) {
         holder.bind(professors[position])
+    }
+
+    fun navigateToProfessor(position: Int) {
+        val args = Bundle().apply {
+            putParcelable("prof", professors[position])
+            putString("profRef", "${profRef.path}/${professors[position].id}")
+        }
+        navController.navigate(R.id.nav_rate_individual_prof, args)
     }
 }

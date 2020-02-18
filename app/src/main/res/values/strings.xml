@@ -65,5 +65,7 @@
     <string name="new_response_dialog_title">New Response</string>
     <string name="dialog_new_group_title">Group Title</string>
     <string name="dialog_new_group_code">Group Code</string>
+    <string name="join_group">Join Group</string>
+    <string name="create_new_group">Create New Group</string>
 
 </resources>

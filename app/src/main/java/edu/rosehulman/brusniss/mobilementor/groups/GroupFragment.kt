@@ -1,9 +1,7 @@
 package edu.rosehulman.brusniss.mobilementor.groups
 
 import android.os.Bundle
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
+import android.view.*
 import androidx.appcompat.app.AlertDialog
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
@@ -14,6 +12,8 @@ import kotlinx.android.synthetic.main.fragment_gradient_background.view.*
 
 class GroupFragment : Fragment() {
 
+    lateinit var adapter: GroupAdapter
+
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
@@ -21,18 +21,17 @@ class GroupFragment : Fragment() {
     ): View? {
         val rootView = inflater.inflate(R.layout.fragment_gradient_background, container, false)
         rootView.gradient_recycler_view.layoutManager = LinearLayoutManager(context)
-        val adapter = GroupAdapter(context!!, findNavController())
+        adapter = GroupAdapter(context!!, findNavController())
         rootView.gradient_recycler_view.setHasFixedSize(true)
         rootView.gradient_recycler_view.adapter = adapter
 
-        rootView.add_fab.setOnClickListener() {
-            showAddGroupDialog(adapter)
-        }
+        rootView.add_fab.hide()
+        setHasOptionsMenu(true)
 
         return rootView
     }
 
-    private fun showAddGroupDialog(adapter: GroupAdapter) {
+    private fun showAddGroupDialog() {
         val builder = AlertDialog.Builder(context!!)
         // Set options
         builder.setTitle("New Group")
@@ -50,5 +49,22 @@ class GroupFragment : Fragment() {
         builder.setNegativeButton(android.R.string.cancel, null)
 
         builder.create().show()
+    }
+
+    override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
+        inflater.inflate(R.menu.group_menu, menu)
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        return when (item.itemId) {
+            R.id.action_create_group -> {
+                showAddGroupDialog()
+                true
+            }
+            R.id.action_join_group -> {
+                true
+            }
+            else -> super.onOptionsItemSelected(item)
+        }
     }
 }

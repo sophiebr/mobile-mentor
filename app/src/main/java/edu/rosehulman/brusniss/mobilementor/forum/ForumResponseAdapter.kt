@@ -11,6 +11,7 @@ import com.google.firebase.firestore.DocumentChange
 import com.google.firebase.firestore.Query
 import edu.rosehulman.brusniss.mobilementor.Constants
 import edu.rosehulman.brusniss.mobilementor.R
+import edu.rosehulman.brusniss.mobilementor.User
 
 class ForumResponseAdapter(private val context: Context, private val respRef: CollectionReference) : RecyclerView.Adapter<ForumResponseViewHolder>() {
 
@@ -50,7 +51,7 @@ class ForumResponseAdapter(private val context: Context, private val respRef: Co
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ForumResponseViewHolder {
         val view = LayoutInflater.from(context).inflate(R.layout.fragment_forum_post_response_row, parent, false)
-        return ForumResponseViewHolder(view)
+        return ForumResponseViewHolder(view, this)
     }
 
     override fun getItemCount(): Int = responses.size
@@ -61,5 +62,14 @@ class ForumResponseAdapter(private val context: Context, private val respRef: Co
 
     fun addResponse(forumResponseModel: ForumResponseModel) {
         respRef.add(forumResponseModel)
+    }
+
+    fun incLikeCount(adapterPosition: Int): Int {
+        val resp = responses[adapterPosition]
+        if (resp.author?.path != User.firebasePath) {
+            resp.likes += 1
+            respRef.document(resp.id).set(resp!!)
+        }
+        return resp.likes
     }
 }

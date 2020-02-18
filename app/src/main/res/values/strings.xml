@@ -67,5 +67,7 @@
     <string name="dialog_new_group_code">Group Code</string>
     <string name="join_group">Join Group</string>
     <string name="create_new_group">Create New Group</string>
+    <string name="new_group_title">New Group</string>
+    <string name="invalid_group">Invalid group</string>
 
 </resources>

@@ -5,6 +5,7 @@ import android.os.Bundle
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import androidx.appcompat.app.AlertDialog
 import androidx.navigation.NavController
 import androidx.recyclerview.widget.RecyclerView
 import com.google.firebase.firestore.DocumentChange
@@ -78,6 +79,20 @@ class GroupAdapter(private val context: Context, private val navController: NavC
     fun addNewGroup(name: String, code: Int) {
         FirebaseFirestore.getInstance().collection(Constants.GROUP_PATH).add(Group(name, code)).addOnSuccessListener {
             groupRef.add(GroupModel(name, it))
+        }
+    }
+
+    fun addExistingGroup(name: String, code: Int, context: Context) {
+        val groupQuery = FirebaseFirestore.getInstance().collection(Constants.GROUP_PATH).whereEqualTo("code", code).whereEqualTo("name", name)
+        groupQuery.get().addOnSuccessListener {
+            if (it.documents.size > 0) {
+                for (document in it.documents) {
+                    groupRef.add(GroupModel(name, document.reference))
+                }
+            } else {
+                AlertDialog.Builder(context).setMessage(context.getString(R.string.invalid_group))
+                    .create().show()
+            }
         }
     }
 }

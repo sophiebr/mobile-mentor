@@ -14,7 +14,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="@string/dialog_new_group_title"
-        android:inputType="textCapSentences"
+        android:inputType="textCapWords"
         android:textSize="24sp"
         android:padding="5dp"
         android:layout_marginBottom="10dp"

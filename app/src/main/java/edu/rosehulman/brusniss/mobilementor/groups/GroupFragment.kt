@@ -44,7 +44,7 @@ class GroupFragment : Fragment() {
             val name = view.dialog_add_new_group_name.text.toString()
             val code = view.dialog_add_new_group_code.text.toString()
             if (!name.isNullOrBlank() && !code.isNullOrBlank()) {
-                //adapter.addNewGroup(GroupModel(name, code.toInt()))
+                adapter.addNewGroup(name, code.toInt())
             }
         }
         builder.setNegativeButton(android.R.string.cancel, null)

@@ -12,7 +12,6 @@ import com.google.firebase.firestore.*
 import edu.rosehulman.brusniss.mobilementor.Constants
 import edu.rosehulman.brusniss.mobilementor.R
 import edu.rosehulman.brusniss.mobilementor.User
-import kotlinx.android.synthetic.main.dialog_add_forum_post.view.*
 import kotlinx.android.synthetic.main.dialog_edit_response.view.*
 import kotlinx.android.synthetic.main.fragment_forum_post.view.*
 import java.util.ArrayList
@@ -21,6 +20,7 @@ class ForumPostFragment : Fragment() {
 
     private var forumPostModel: ForumPostModel? = null
     private lateinit var respRef: CollectionReference
+    private lateinit var postRef: DocumentReference
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -29,7 +29,8 @@ class ForumPostFragment : Fragment() {
     ): View? {
         arguments?.let {
             forumPostModel = it.getParcelable("post")
-            respRef = FirebaseFirestore.getInstance().collection(it.getString("responsePath")!!)
+            respRef = FirebaseFirestore.getInstance().collection(it.getString("postPath")!! + "/response")
+            postRef = FirebaseFirestore.getInstance().document(it.getString("postPath")!!)
         }
 
         val forumView = inflater.inflate(R.layout.fragment_forum_post, container, false)
@@ -59,6 +60,14 @@ class ForumPostFragment : Fragment() {
         header.post_like_text.text = forumPostModel?.likeCount.toString()
         header.post_response_text.text = forumPostModel?.responseCount.toString()
         header.post_star_text.text = forumPostModel?.mentorResponseCount.toString()
+
+        header.forum_like_image.setOnClickListener {
+            Log.d(Constants.TAG, "Like!")
+            forumPostModel!!.likeCount += 1
+            Log.d(Constants.TAG, forumPostModel?.likeCount.toString())
+            header.post_like_text.text = forumPostModel?.likeCount.toString()
+            postRef.set(forumPostModel!!)
+        }
     }
 
     private fun showAddResponseDialog(adapter: ForumResponseAdapter) {

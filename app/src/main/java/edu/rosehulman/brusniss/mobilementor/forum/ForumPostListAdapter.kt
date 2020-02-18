@@ -65,7 +65,7 @@ class ForumPostListAdapter(private val context: Context, private val navControll
     fun navigateToPost(position: Int) {
         val args = Bundle().apply {
             putParcelable("post", posts[position])
-            putString("responsePath", publicForumRef.path + '/' + posts[position].id + "/response")
+            putString("postPath", publicForumRef.path + '/' + posts[position].id)
         }
         navController.navigate(R.id.nav_forum_post, args)
     }

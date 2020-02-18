@@ -1,6 +1,7 @@
 package edu.rosehulman.brusniss.mobilementor
 
 object Constants {
+    const val RATE_PROF_PATH = "professor"
     const val TAG = "MM"
     const val PUBLIC_FORUM_PATH = "group/w03ciKYXL1Gzehisgx2v"
     const val GROUP_PATH = "group"

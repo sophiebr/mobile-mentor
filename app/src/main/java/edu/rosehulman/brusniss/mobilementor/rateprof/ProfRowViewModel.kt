@@ -6,7 +6,7 @@ import com.google.firebase.firestore.QueryDocumentSnapshot
 import kotlinx.android.parcel.Parcelize
 
 @Parcelize
-data class ProfRowViewModel(val name: String = "", val department: String = "", val rating: Float, val pictureUrl: String = "") : Parcelable {
+data class ProfRowViewModel(val name: String = "", val department: String = "", val rating: Float = 0f, val pictureUrl: String = "") : Parcelable {
     @get:Exclude
     var id: String = ""
 

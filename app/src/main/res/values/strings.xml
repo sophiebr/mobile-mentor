@@ -2,7 +2,7 @@
     <string name="app_name">MobileMentor</string>
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
-    <string name="nav_header_title">Mobile Mentor</string>
+    <string name="app_title">Mobile Mentor</string>
     <string name="nav_header_subtitle">android.studio@android.com</string>
     <string name="nav_header_desc">Navigation header</string>
     <string name="action_settings">Logout</string>
@@ -80,4 +80,10 @@
     <string name="rate_professor_quality">Quality</string>
     <string name="rate_professor_content">Content</string>
     <string name="two_sig_fig">"%.1f"</string>
+    <string name="pref_build_version_title">Build Version</string>
+    <string name="pref_about_title">About</string>
+    <string name="pref_dnd_title">Do Not Disturb</string>
+    <string name="pref_dnd_summary">Toggle Do NOT Disturb</string>
+    <string name="pref_notifications_cat_title">Notifications</string>
+    <string name="pref_customize_cat_title">Customize</string>
 </resources>

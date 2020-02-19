@@ -3,7 +3,8 @@
     xmlns:android="http://schemas.android.com/apk/res/android">
 
     <PreferenceCategory
-        android:title="Notifications">
+        android:title="@string/pref_notifications_cat_title"
+        android:key="notifications">
 
         <ListPreference
             android:dialogTitle="Select Forum Notification Option"
@@ -21,16 +22,17 @@
             android:summary="[Selected Setting Displayed Here]"
             android:title="Chat Notifications" />
 
-        <SwitchPreference
-            android:key="switch"
-            android:title="Do Not Disturb"
-            android:summary="Click to switch on or off"
-            android:defaultValue="true"/>
+        <SwitchPreferenceCompat
+            android:key="dnd_switch"
+            android:title="@string/pref_dnd_title"
+            android:summary="@string/pref_dnd_summary"
+            android:defaultValue="false"/>
 
     </PreferenceCategory>
 
     <PreferenceCategory
-        android:title="Customize">
+        android:title="@string/pref_customize_cat_title"
+        android:key="customize">
 
         <Preference
             android:title="Banner Color"
@@ -61,10 +63,15 @@
     </PreferenceCategory>
 
     <PreferenceCategory
-        android:title="Mobile Mentor">
+        android:title="@string/app_title">
 
         <Preference
-            android:title="About"/>
+            android:title="@string/pref_about_title"/>
+
+        <Preference
+            android:title="@string/pref_build_version_title"
+            android:key="version"
+            android:summary="1.0.2"/>
     </PreferenceCategory>
 
 </PreferenceScreen>

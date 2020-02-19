@@ -8,17 +8,17 @@ import kotlinx.android.parcel.Parcelize
 import kotlinx.android.parcel.RawValue
 
 @Parcelize
-data class ChatroomModel(val mentor: String = "", val chat: @RawValue DocumentReference? = null) : Parcelable {
+data class ChatroomModel(val receiver: String = "", val chat: @RawValue DocumentReference? = null) : Parcelable {
     @get:Exclude
     var id = ""
 
     // For the spinner to work using this model
     override fun toString(): String {
-        return mentor
+        return receiver
     }
 
     companion object {
-        const val MENTOR_KEY = "mentor"
+        const val MENTOR_KEY = "receiver"
 
         fun fromSnapshot(snapshot: DocumentSnapshot): ChatroomModel {
             val chat = snapshot.toObject(ChatroomModel::class.java)!!

@@ -20,7 +20,8 @@ import java.util.*
 class MessageAdapter(private val context: Context, private val arr: ArrayAdapter<ChatroomModel>, private var layoutManager: LinearLayoutManager) : RecyclerView.Adapter<MessageViewHolder>(), AdapterView.OnItemSelectedListener {
 
     override fun onNothingSelected(parent: AdapterView<*>?) {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+        listener?.remove()
+        messages.clear()
     }
 
     override fun onItemSelected(parent: AdapterView<*>?, view: View?, position: Int, id: Long) {

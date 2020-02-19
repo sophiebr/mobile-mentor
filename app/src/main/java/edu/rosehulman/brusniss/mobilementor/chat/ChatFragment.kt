@@ -74,7 +74,9 @@ class ChatFragment : Fragment() {
         rootView.message_recycler_view.adapter = adapter
 
         rootView.send_button.setOnClickListener {
-            adapter.addMessage(rootView.chat_edit_text.text.toString())
+            if (spinnerAdapter.count > 0) {
+                adapter.addMessage(rootView.chat_edit_text.text.toString())
+            }
         }
 
         return rootView

@@ -13,6 +13,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.google.firebase.firestore.*
 import edu.rosehulman.brusniss.mobilementor.Constants
 import edu.rosehulman.brusniss.mobilementor.R
+import edu.rosehulman.brusniss.mobilementor.User
 import kotlinx.android.synthetic.main.spinner_item_line.view.*
 import java.util.*
 
@@ -24,6 +25,7 @@ class MessageAdapter(private val context: Context, private val arr: ArrayAdapter
 
     override fun onItemSelected(parent: AdapterView<*>?, view: View?, position: Int, id: Long) {
         listener?.remove()
+        messages.clear()
         messagesRef = arr.getItem(position)?.chat!!.collection("messages")
         setUpListener()
     }
@@ -43,9 +45,9 @@ class MessageAdapter(private val context: Context, private val arr: ArrayAdapter
                         val msg = MessageModel.fromSnapshot(docChange.document)
                         when (docChange.type) {
                             DocumentChange.Type.ADDED -> {
-                                messages.add(0, msg)
-                                notifyItemInserted(0)
-                                layoutManager.scrollToPosition(0)
+                                messages.add(msg)
+                                notifyItemInserted(messages.size - 1)
+                                layoutManager.scrollToPosition(messages.size - 1)
                             }
                             DocumentChange.Type.REMOVED -> {
                                 val pos = messages.indexOfFirst { msg.id == it.id }
@@ -72,5 +74,10 @@ class MessageAdapter(private val context: Context, private val arr: ArrayAdapter
 
     override fun onBindViewHolder(holder: MessageViewHolder, position: Int) {
         holder.bind(messages[position])
+    }
+
+    fun addMessage(msg: String) {
+        val message = MessageModel(msg, FirebaseFirestore.getInstance().document(User.firebasePath))
+        messagesRef.add(message)
     }
 }

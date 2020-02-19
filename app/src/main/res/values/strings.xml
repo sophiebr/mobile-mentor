@@ -73,4 +73,8 @@
     <string name="update_picture_button">Update Picture</string>
     <string name="dialog_edit_profile_details">Edit Profile Details</string>
     <string name="new_post_notice_checkbox">Post as Notice</string>
+    <string name="rate_professor_class">Class</string>
+    <string name="rate_professor_difficulty">Difficulty</string>
+    <string name="rate_professor_quality">Quality</string>
+    <string name="rate_professor_content">Content</string>
 </resources>

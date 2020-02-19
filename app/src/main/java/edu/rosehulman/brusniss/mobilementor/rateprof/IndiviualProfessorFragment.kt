@@ -28,9 +28,9 @@ class IndiviualProfessorFragment : Fragment() {
         val rootView = inflater.inflate(R.layout.fragment_rate_professor_individual_review, container, false)
         loadHeader(rootView)
         rootView.professor_review_recycler.layoutManager = LinearLayoutManager(context)
-        //val adapter = ProfRowViewAdapter(context!!, findNavController())
-        //rootView.professor_review_recycler.setHasFixedSize(true)
-        //rootView.professor_review_recycler.adapter = adapter
+        val adapter = ReviewAdapter(context!!, profRef)
+        rootView.professor_review_recycler.setHasFixedSize(true)
+        rootView.professor_review_recycler.adapter = adapter
         return rootView
     }
 

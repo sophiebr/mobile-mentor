@@ -15,8 +15,11 @@ import android.view.ViewGroup
 import androidx.appcompat.app.AlertDialog
 import androidx.core.content.FileProvider
 import androidx.fragment.app.Fragment
+import com.google.firebase.firestore.DocumentSnapshot
 import com.google.firebase.firestore.FirebaseFirestore
+import com.google.firebase.firestore.FirebaseFirestoreException
 import com.google.firebase.storage.FirebaseStorage
+import com.squareup.picasso.Picasso
 import edu.rosehulman.brusniss.mobilementor.Constants
 import edu.rosehulman.brusniss.mobilementor.R
 import edu.rosehulman.brusniss.mobilementor.User
@@ -33,16 +36,11 @@ class ProfileFragment : Fragment() {
     private val userRef = FirebaseFirestore.getInstance().document(User.firebasePath)
     private var currentPhotoPath = ""
     private val storageRef = FirebaseStorage.getInstance().reference.child(Constants.IMAGES_PATH)
+    private lateinit var profileView: View
 
-    override fun onCreateView(
-        inflater: LayoutInflater,
-        container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View? {
-        val profileView = inflater.inflate(R.layout.fragment_profile, container, false)
-        Log.d(Constants.TAG, userRef.path)
-        userRef.get().addOnSuccessListener {
-            val user = ProfileModel.fromSnapshot(it)
+    init {
+        userRef.addSnapshotListener() { snapshot: DocumentSnapshot?, exception: FirebaseFirestoreException? ->
+            val user = ProfileModel.fromSnapshot(snapshot!!)
             profileView.profile_name_text.text = user.name
             profileView.profile_major_text.text = user.major
             profileView.profile_bio_edit_text.text = user.bio
@@ -52,7 +50,19 @@ class ProfileFragment : Fragment() {
                 PermissionLevel.PROFESSOR -> getString(R.string.prof)
                 else -> getString(R.string.reg)
             }
+            if (user.pictureUrl.isNotBlank()) {
+                Picasso.get().load(user.pictureUrl).resize(200, 200).onlyScaleDown().into(profileView.default_profile_image)
+            }
         }
+    }
+
+    override fun onCreateView(
+        inflater: LayoutInflater,
+        container: ViewGroup?,
+        savedInstanceState: Bundle?
+    ): View? {
+        profileView = inflater.inflate(R.layout.fragment_profile, container, false)
+        Log.d(Constants.TAG, userRef.path)
         profileView.change_image_button.setOnClickListener {
             showPictureDialog()
         }

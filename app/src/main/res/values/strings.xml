@@ -79,4 +79,5 @@
     <string name="new_review_title">New Review</string>
     <string name="rate_professor_quality">Quality</string>
     <string name="rate_professor_content">Content</string>
+    <string name="two_sig_fig">"%.1f"</string>
 </resources>

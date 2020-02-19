@@ -49,7 +49,7 @@ class ReviewAdapter(private val context: Context, profRefPath: String) : Recycle
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ReviewViewHolder {
         val view = LayoutInflater.from(context).inflate(R.layout.fragment_rate_professor_individual_review_row, parent, false)
-        return ReviewViewHolder(view)
+        return ReviewViewHolder(view, context)
     }
 
     override fun getItemCount(): Int = reviews.size

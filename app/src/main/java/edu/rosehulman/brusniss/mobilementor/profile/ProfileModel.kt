@@ -7,9 +7,7 @@ import kotlinx.android.parcel.Parcelize
 
 @Parcelize
 data class ProfileModel(var name: String = "Unknown Name",
-                        var major: String = "Unknown Major",
                         @PermissionLevel var permissionLevel: Int = PermissionLevel.REGULAR,
-                        var bio: String = "N/A",
                         var pictureUrl: String = "") : ViewModel(), Parcelable {
     companion object {
         fun fromSnapshot(snapshot: DocumentSnapshot): ProfileModel {

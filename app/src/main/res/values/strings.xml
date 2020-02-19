@@ -45,7 +45,7 @@
     <string name="default_professor_review">Default professor review text for Rate My Professor</string>
     <string name="default_class">Default Class XX123</string>
     <string name="about_text">Mobile Mentor was created by Sophie Brusniak and Rias Hilliard to facilitate communication between mentors and mentees in Rose-Hulman mentoring programs.\n\nThis app was made for the Winter 2019/2020 Android Project.</string>
-    <string name="version_number">Version 1.0.0</string>
+    <string name="version_number">Version 1.9.97</string>
     <string name="send_text">Send</string>
     <string name="example_chat_text">Example text here lots of words to show what a long text looks like</string>
     <string name="default_forum_post">Forum Post</string>
@@ -90,4 +90,11 @@
     <string name="photo_source_msg">"Would you like to take a new picture?\nOr choose an existing one?"s</string>
     <string name="take_pic">Take Picture</string>
     <string name="choose_pic">Choose Picture</string>
+    <string name="banner_color">Banner Color</string>
+    <string name="menu_color">Menu Color</string>
+    <string name="pref_banner_color_summary">Change bar color</string>
+    <string name="pref_menu_color_summary">Change menu color</string>
+    <string name="colorDialogTitle">Choose %s color</string>
+    <string name="banner">Banner</string>
+    <string name="menu">Menu</string>
 </resources>

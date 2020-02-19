@@ -5,9 +5,11 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.AdapterView
 import android.widget.ArrayAdapter
 import android.widget.Spinner
 import androidx.fragment.app.Fragment
+import androidx.recyclerview.widget.LinearLayoutManager
 import com.google.firebase.firestore.DocumentChange
 import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.firestore.Query
@@ -63,6 +65,13 @@ class ChatFragment : Fragment() {
         spinnerAdapter = ArrayAdapter(context!!, R.layout.spinner_item_line)
         spinnerAdapter.setNotifyOnChange(true)
         rootView.choose_chat_spinner.adapter = spinnerAdapter
+
+        val layoutManager = LinearLayoutManager(context)
+        val adapter = MessageAdapter(context!!, spinnerAdapter, layoutManager)
+        rootView.choose_chat_spinner.onItemSelectedListener = adapter
+        rootView.message_recycler_view.layoutManager = layoutManager
+        rootView.message_recycler_view.setHasFixedSize(true)
+        rootView.message_recycler_view.adapter = adapter
         return rootView
     }
 }

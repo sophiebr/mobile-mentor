@@ -9,9 +9,12 @@ class MessageViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
 
     fun bind(model: MessageModel) {
         itemView.message_bubble.text = model.message
-        if (model.sender?.path == User.firebasePath) {
-            itemView.setBackgroundResource(android.R.color.holo_blue_light)
-            itemView.message_bubble.setBackgroundResource(android.R.color.holo_blue_light)
+        val color = if (model.sender?.path == User.firebasePath) {
+            android.R.color.holo_blue_light
+        } else {
+            android.R.color.white
         }
+        itemView.setBackgroundResource(color)
+        itemView.message_bubble.setBackgroundResource(color)
     }
 }

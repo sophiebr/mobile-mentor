@@ -7,6 +7,7 @@ import android.view.ViewGroup
 import androidx.appcompat.app.AlertDialog
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.squareup.picasso.Picasso
 import edu.rosehulman.brusniss.mobilementor.R
 import edu.rosehulman.brusniss.mobilementor.User
 import edu.rosehulman.brusniss.mobilementor.profile.PermissionLevel
@@ -55,7 +56,9 @@ class IndiviualProfessorFragment : Fragment() {
         rootView.rate_professor_department.text = professor.department
         rootView.rate_professor_rating.rating = professor.quality
         rootView.rate_professor_rating_difficulty.rating = professor.difficulty
-        //TODO: picture
+        if (professor.pictureUrl.isNotBlank()) {
+            Picasso.get().load(professor.pictureUrl).resize(600,600).centerInside().into(rootView.professor_image)
+        }
     }
 
     private fun showAddReviewDialog(adapter: ReviewAdapter, rootView: View) {

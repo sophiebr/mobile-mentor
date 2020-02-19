@@ -3,7 +3,10 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:layout_margin="15dp">
+    android:layout_margin="15dp"
+    android:clickable="true"
+    android:focusable="true"
+    android:focusableInTouchMode="true">
 
     <Spinner
         android:id="@+id/choose_chat_spinner"
@@ -15,9 +18,10 @@
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/post_response_recycler_view"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="match_parent"
         android:layout_margin="10dp"
-        android:layout_below="@id/choose_chat_spinner"/>
+        android:layout_below="@id/choose_chat_spinner"
+        android:layout_above="@id/chat_edit_text"/>
 
     <EditText
         android:id="@+id/chat_edit_text"

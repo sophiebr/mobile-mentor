@@ -48,10 +48,26 @@ class ProfileFragment : Fragment() {
             val user = ProfileModel.fromSnapshot(snapshot!!)
             profileView.profile_name_text.text = user.name
             profileView.profile_level.text = when (user.permissionLevel) {
-                PermissionLevel.ADMIN -> getString(R.string.admin)
-                PermissionLevel.MENTOR -> getString(R.string.mentor)
-                PermissionLevel.PROFESSOR -> getString(R.string.prof)
-                else -> getString(R.string.reg)
+                PermissionLevel.ADMIN -> if (context != null) {
+                    getString(R.string.admin)
+                } else {
+                    "ADMIN"
+                }
+                PermissionLevel.MENTOR -> if (context != null) {
+                    getString(R.string.mentor)
+                } else {
+                    "MENTOR"
+                }
+                PermissionLevel.PROFESSOR -> if (context != null) {
+                    getString(R.string.prof)
+                } else {
+                    "PROFESSOR"
+                }
+                else -> if (context != null) {
+                    getString(R.string.reg)
+                } else {
+                    "REGULAR"
+                }
             }
             if (user.pictureUrl.isNotBlank()) {
                 Picasso.get().load(user.pictureUrl).resize(1000, 1000).centerInside().into(profileView.default_profile_image)

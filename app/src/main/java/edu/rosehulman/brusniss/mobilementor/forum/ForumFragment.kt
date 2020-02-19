@@ -56,12 +56,15 @@ class ForumFragment : Fragment() {
             val tags = view.dialog_add_forum_post_tags.text.toString()
             val content = view.dialog_add_forum_post_content.text.toString()
             if (!title.isBlank() && !content.isBlank()) {
-                val tagList = ArrayList<String>()
-                if (tags.isNotBlank()) {
-                    tagList.addAll(tags.split(","))
-                }
                 val authorRef = FirebaseFirestore.getInstance().document(User.firebasePath)
-                adapter.addNewPost(ForumPostModel(title = title, content = content, tags = tagList, author = authorRef))
+                val post = ForumPostModel(title = title, content = content, author = authorRef)
+                if (tags.isNotBlank()) {
+                    post.tags = tags.split(",")
+                }
+                if (view.checkbox_post_as_notice.isChecked) {
+                    post.questionState = QuestionStatus.NOTIFICATION
+                }
+                adapter.addNewPost(post)
             }
         }
         builder.setNegativeButton(android.R.string.cancel, null)

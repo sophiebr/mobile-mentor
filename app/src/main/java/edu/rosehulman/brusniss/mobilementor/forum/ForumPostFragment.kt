@@ -75,7 +75,8 @@ class ForumPostFragment : Fragment() {
                 }
             }
         }
-        // TODO: Add tags
+        header.tag_recycler_view.layoutManager = LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, false)
+        header.tag_recycler_view.adapter = TagAdapter(context!!, forumPostModel!!.tags)
         header.post_question_text.text = forumPostModel?.content
         header.post_like_text.text = forumPostModel?.likeCount.toString()
         header.post_response_text.text = forumPostModel?.responseCount.toString()

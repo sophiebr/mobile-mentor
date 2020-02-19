@@ -181,5 +181,21 @@ class ProfileFragment : Fragment() {
         uploadTask.addOnSuccessListener {
             Log.d(Constants.TAG, "Image upload succeded: $localPath")
         }
+        uploadTask.continueWithTask { task ->
+            if (!task.isSuccessful) {
+                task.exception?.let {
+                    throw it
+                }
+            }
+            storageRef.child(id).downloadUrl
+        }.addOnCompleteListener { task ->
+            if (task.isSuccessful) {
+                val downloadUri = task.result
+                userRef.update("pictureUrl", downloadUri.toString())
+                Log.d(Constants.TAG, "Image download succeeded: $downloadUri")
+            } else {
+                Log.d(Constants.TAG, "Image download failed")
+            }
+        }
     }
 }

@@ -7,6 +7,7 @@ import android.os.Bundle
 import android.view.View
 import android.widget.Toast
 import androidx.appcompat.widget.Toolbar
+import androidx.navigation.fragment.findNavController
 import androidx.preference.Preference
 import androidx.preference.PreferenceFragmentCompat
 import com.flask.colorpicker.ColorPickerView
@@ -31,6 +32,10 @@ class BaseSettingsFragment : PreferenceFragmentCompat() {
                 val navView = activity?.findViewById<NavigationView>(R.id.nav_view)
                 showColorDialog(getString(R.string.menu), navView!!.getHeaderView(0))
                 true
+            }
+            "about" -> {
+                findNavController().navigate(R.id.nav_about)
+                return true
             }
             else -> super.onPreferenceTreeClick(preference)
         }

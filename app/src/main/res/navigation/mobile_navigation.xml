@@ -54,6 +54,12 @@
         tools:layout="@layout/fragment_gradient_background" />
 
     <fragment
+        android:id="@+id/nav_about"
+        android:name="edu.rosehulman.brusniss.mobilementor.settings.AboutFragment"
+        android:label="@string/menu_settings"
+        tools:layout="@layout/fragment_about" />
+
+    <fragment
         android:id="@+id/nav_login"
         android:name="edu.rosehulman.brusniss.mobilementor.login.LoginFragment"
         android:label="@string/login"

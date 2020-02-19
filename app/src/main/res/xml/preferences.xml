@@ -67,12 +67,13 @@
         android:title="@string/app_title">
 
         <Preference
-            android:title="@string/pref_about_title"/>
+            android:title="@string/pref_about_title"
+            android:key="about"/>
 
         <Preference
             android:title="@string/pref_build_version_title"
             android:key="version"
-            android:summary="1.0.2"/>
+            android:summary="@string/version_number"/>
     </PreferenceCategory>
 
 </PreferenceScreen>

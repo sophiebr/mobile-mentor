@@ -5,6 +5,7 @@ import android.os.Bundle
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import androidx.appcompat.app.AlertDialog
 import androidx.navigation.NavController
 import androidx.recyclerview.widget.RecyclerView
 import com.google.firebase.firestore.DocumentChange
@@ -66,6 +67,7 @@ class GroupAdapter(private val context: Context, private val navController: NavC
         val args = Bundle().apply {
             putString("groupPath", groups[pos].group?.path)
             putString("forumName", groups[pos].name)
+            putString("userGroup", "${groupRef.path}/${groups[pos].id}")
         }
         groups[pos].group?.get()?.addOnSuccessListener {
             val group = Group.fromSnapshot(it)
@@ -75,7 +77,23 @@ class GroupAdapter(private val context: Context, private val navController: NavC
         navController.navigate(R.id.nav_forum, args)
     }
 
-    fun addNewGroup(groupModel: GroupModel) {
-        groupRef.add(groupModel)
+    fun addNewGroup(name: String, code: Int) {
+        FirebaseFirestore.getInstance().collection(Constants.GROUP_PATH).add(Group(name, code)).addOnSuccessListener {
+            groupRef.add(GroupModel(name, it))
+        }
+    }
+
+    fun addExistingGroup(name: String, code: Int, context: Context) {
+        val groupQuery = FirebaseFirestore.getInstance().collection(Constants.GROUP_PATH).whereEqualTo("code", code).whereEqualTo("name", name)
+        groupQuery.get().addOnSuccessListener {
+            if (it.documents.size > 0) {
+                for (document in it.documents) {
+                    groupRef.add(GroupModel(name, document.reference))
+                }
+            } else {
+                AlertDialog.Builder(context).setMessage(context.getString(R.string.invalid_group))
+                    .create().show()
+            }
+        }
     }
 }

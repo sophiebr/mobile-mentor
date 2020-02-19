@@ -6,11 +6,10 @@ import com.google.firebase.firestore.DocumentSnapshot
 import kotlinx.android.parcel.Parcelize
 
 @Parcelize
-data class ProfileModel(var name: String = "Slim Shady",
-                        var major: String = "CHEM/MA",
+data class ProfileModel(var name: String = "Unknown Name",
+                        var major: String = "Unknown Major",
                         @PermissionLevel var permissionLevel: Int = PermissionLevel.REGULAR,
-                        var bio: String = "The alternate personality to Marshall Mathers"
-                            ) : ViewModel(), Parcelable {
+                        var bio: String = "N/A") : ViewModel(), Parcelable {
 
     fun hasPermission(@PermissionLevel level: Int): Boolean {
         return permissionLevel >= level

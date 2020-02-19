@@ -43,6 +43,17 @@
         />
 
     <TextView
+        android:id="@+id/new_post_type"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/dialog_post_type" />
+
+    <CheckBox android:id="@+id/checkbox_post_as_notice"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/new_post_notice_checkbox"/>
+
+    <TextView
         android:id="@+id/new_post_dialog_content"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"

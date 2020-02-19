@@ -37,27 +37,11 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         app:srcCompat="@drawable/ic_edit"
-        android:layout_toRightOf="@id/profile_name_text"
+        android:layout_toEndOf="@id/profile_name_text"
         android:layout_alignBottom="@id/profile_name_text"
-        android:paddingLeft="10dp"
-        />
-
-    <TextView
-        android:id="@+id/profile_major_text"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/default_major"
-        android:textSize="26sp"
-        android:layout_below="@id/profile_name_text"/>
-
-    <ImageView
-        android:id="@+id/profile_edit_major"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:srcCompat="@drawable/ic_edit"
-        android:layout_toRightOf="@id/profile_major_text"
-        android:layout_alignBottom="@id/profile_major_text"
-        android:paddingLeft="10dp"
+        android:layout_alignTop="@+id/profile_name_text"
+        android:paddingStart="10dp"
+        android:paddingEnd="10dp"
         />
 
     <TextView
@@ -66,32 +50,7 @@
         android:layout_height="wrap_content"
         android:text="@string/default_mentor_text"
         android:textSize="26sp"
-        android:layout_below="@id/profile_major_text"/>
-
-    <TextView
-        android:id="@+id/profile_bio_title_text"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/bio_header_text"
-        android:textSize="26sp"
-        android:layout_below="@id/profile_level"/>
-
-    <ImageView
-        android:id="@+id/profile_edit_bio"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:srcCompat="@drawable/ic_edit"
-        android:layout_toRightOf="@id/profile_bio_title_text"
-        android:layout_alignBottom="@id/profile_bio_title_text"
-        android:paddingLeft="20dp"
-        />
-
-    <TextView
-        android:id="@+id/profile_bio_edit_text"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/bio_header_text"
-        android:textSize="18sp"
-        android:layout_below="@id/profile_bio_title_text"/>
+        android:layout_marginTop="30dp"
+        android:layout_below="@id/profile_name_text"/>
 
 </RelativeLayout>

@@ -45,8 +45,6 @@ class ProfileFragment : Fragment() {
         userRef.addSnapshotListener() { snapshot: DocumentSnapshot?, exception: FirebaseFirestoreException? ->
             val user = ProfileModel.fromSnapshot(snapshot!!)
             profileView.profile_name_text.text = user.name
-            profileView.profile_major_text.text = user.major
-            profileView.profile_bio_edit_text.text = user.bio
             profileView.profile_level.text = when (user.permissionLevel) {
                 PermissionLevel.ADMIN -> getString(R.string.admin)
                 PermissionLevel.MENTOR -> getString(R.string.mentor)
@@ -69,7 +67,17 @@ class ProfileFragment : Fragment() {
         profileView.change_image_button.setOnClickListener {
             showPictureDialog()
         }
+        profileView.profile_edit_name.setOnClickListener {
+            showChangeNameDialog()
+        }
+        profileView.profile_name_text.setOnClickListener {
+            showChangeNameDialog()
+        }
         return profileView
+    }
+
+    private fun showChangeNameDialog() {
+        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
     }
 
     private fun showPictureDialog() {

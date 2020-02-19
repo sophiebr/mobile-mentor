@@ -1,10 +1,12 @@
 package edu.rosehulman.brusniss.mobilementor.profile
 
 import android.app.Activity
+import android.content.Context
 import android.content.Intent
 import android.graphics.Bitmap
 import android.graphics.BitmapFactory
 import android.net.Uri
+import android.os.AsyncTask
 import android.os.Bundle
 import android.os.Environment
 import android.provider.MediaStore
@@ -20,6 +22,7 @@ import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.firestore.FirebaseFirestoreException
 import com.google.firebase.storage.FirebaseStorage
 import com.squareup.picasso.Picasso
+import edu.rosehulman.brusniss.mobilementor.BitmapUtils
 import edu.rosehulman.brusniss.mobilementor.Constants
 import edu.rosehulman.brusniss.mobilementor.R
 import edu.rosehulman.brusniss.mobilementor.User
@@ -51,7 +54,7 @@ class ProfileFragment : Fragment() {
                 else -> getString(R.string.reg)
             }
             if (user.pictureUrl.isNotBlank()) {
-                Picasso.get().load(user.pictureUrl).resize(200, 200).onlyScaleDown().into(profileView.default_profile_image)
+                Picasso.get().load(user.pictureUrl).resize(1000, 1000).centerInside().into(profileView.default_profile_image)
             }
         }
     }
@@ -157,16 +160,18 @@ class ProfileFragment : Fragment() {
         addPhotoToGallery()
         Log.d(Constants.TAG, "Sending to adapter this photo: $currentPhotoPath")
         //adapter.add(currentPhotoPath)
-        val bitmap = BitmapFactory.decodeFile(currentPhotoPath)
-        storageAdd(currentPhotoPath, bitmap)
+        //val bitmap = BitmapFactory.decodeFile(currentPhotoPath)
+        //storageAdd(currentPhotoPath, bitmap)
+        ImageRescaleTask(currentPhotoPath).execute()
     }
 
     private fun sendGalleryPhotoToAdapter(data: Intent?) {
         if (data != null && data.data != null) {
             val location = data.data!!.toString()
             //adapter.add(location)
-            val bitmap = BitmapFactory.decodeFile(location)
-            storageAdd(location, bitmap)
+            //val bitmap = BitmapFactory.decodeFile(location)
+            //storageAdd(location, bitmap)
+            ImageRescaleTask(location).execute()
         }
     }
 
@@ -207,5 +212,26 @@ class ProfileFragment : Fragment() {
                 Log.d(Constants.TAG, "Image download failed")
             }
         }
+    }
+
+    // Could save a smaller version to Storage to save time on the network.
+    // But if too small, recognition accuracy can suffer.
+    inner class ImageRescaleTask(val localPath: String) : AsyncTask<Void, Void, Bitmap>() {
+        override fun doInBackground(vararg p0: Void?): Bitmap? {
+            // Reduces length and width by a factor (currently 2).
+            val ratio = 2
+            return BitmapUtils.rotateAndScaleByRatio(context!!, localPath, ratio)
+        }
+
+        override fun onPostExecute(bitmap: Bitmap?) {
+            // TODO: Write and call a new storageAdd() method with the path and bitmap
+            // that uses Firebase storageRef.
+            // https://firebase.google.com/docs/storage/android/upload-files
+            storageAdd(localPath, bitmap)
+        }
+    }
+
+    override fun onAttach(context: Context) {
+        super.onAttach(this.context!!)
     }
 }

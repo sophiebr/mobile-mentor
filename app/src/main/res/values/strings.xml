@@ -74,5 +74,9 @@
     <string name="dialog_edit_profile_details">Edit Profile Details</string>
     <string name="new_post_notice_checkbox">Post as Notice</string>
     <string name="join_group_title">Join Existing Group</string>
+    <string name="rate_professor_class">Class</string>
+    <string name="rate_professor_difficulty">Difficulty</string>
     <string name="new_review_title">New Review</string>
+    <string name="rate_professor_quality">Quality</string>
+    <string name="rate_professor_content">Content</string>
 </resources>

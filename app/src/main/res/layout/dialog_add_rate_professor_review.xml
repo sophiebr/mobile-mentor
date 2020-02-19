@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <TextView
+        android:id="@+id/rate_professor_class"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/rate_professor_class" />
+
+    <EditText
+        android:id="@+id/dialog_rate_professor_class"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="@string/rate_professor_class"
+        android:inputType="textCapSentences"
+        android:textSize="24sp"
+        android:padding="5dp"
+        android:layout_marginBottom="10dp"
+        />
+
+    <TextView
+        android:id="@+id/rate_professor_quality"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/rate_professor_quality" />
+
+    <EditText
+        android:id="@+id/dialog_rate_professor_quality"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="@string/rate_professor_quality"
+        android:inputType="textCapSentences"
+        android:textSize="24sp"
+        android:padding="5dp"
+        android:layout_marginBottom="10dp"
+        />
+
+    <TextView
+        android:id="@+id/rate_professor_difficulty"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/rate_professor_difficulty" />
+
+    <EditText
+        android:id="@+id/dialog_rate_professor_difficulty"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="@string/rate_professor_difficulty"
+        android:inputType="textCapSentences"
+        android:textSize="24sp"
+        android:padding="5dp"
+        android:layout_marginBottom="10dp"
+        />
+
+    <TextView
+        android:id="@+id/rate_professor_content"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/rate_professor_content" />
+
+    <EditText
+        android:id="@+id/dialog_rate_professor_content"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="@string/rate_professor_content"
+        android:inputType="textCapSentences"
+        android:textSize="24sp"
+        android:padding="5dp"
+        android:layout_marginBottom="10dp"
+        />
+
+</LinearLayout>

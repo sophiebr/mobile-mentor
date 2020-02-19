@@ -23,7 +23,7 @@ class ReviewAdapter(private val context: Context, profRefPath: String) : Recycle
                 if (exception != null) {
                     Log.e(Constants.TAG, "Listen error $exception")
                 } else {
-                    Log.d(Constants.TAG, "In Professor listener")
+                    Log.d(Constants.TAG, "In Review listener")
                     for (docChange in snapshot!!.documentChanges) {
                         val review = ReviewModel.fromSnapshot(docChange.document)
                         when (docChange.type) {
@@ -60,19 +60,20 @@ class ReviewAdapter(private val context: Context, profRefPath: String) : Recycle
 
     fun addReview(review: ReviewModel) {
         reviewRef.add(review)
-        calculateAverage()
     }
 
-    private fun calculateAverage() {
-        var avgDif = 0.0f
-        var avgQual = 0.0f
+    fun calculateAverage(newReview: ReviewModel): Pair<Float, Float> {
+        var avgDif = newReview.difficulty
+        var avgQual = newReview.quality
         for (review in reviews) {
             avgDif += review.difficulty
             avgQual += review.quality
         }
-        avgDif /= reviews.size
-        avgQual /= reviews.size
+        avgDif /= reviews.size + 1
+        avgQual /= reviews.size + 1
         profRef.update("difficulty", avgDif)
         profRef.update("quality", avgQual)
+
+        return Pair(avgDif, avgQual)
     }
 }

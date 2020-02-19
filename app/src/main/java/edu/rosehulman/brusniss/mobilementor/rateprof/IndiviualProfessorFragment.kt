@@ -8,6 +8,7 @@ import androidx.appcompat.app.AlertDialog
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import edu.rosehulman.brusniss.mobilementor.R
+import kotlinx.android.synthetic.main.dialog_add_rate_professor_review.view.*
 import kotlinx.android.synthetic.main.fragment_rate_professor_individual_review.view.*
 
 class IndiviualProfessorFragment : Fragment() {
@@ -33,10 +34,10 @@ class IndiviualProfessorFragment : Fragment() {
         rootView.professor_review_recycler.adapter = adapter
 
         rootView.rate_professor_write_reviews_title.setOnClickListener() {
-            showAddReviewDialog(adapter)
+            showAddReviewDialog(adapter, rootView)
         }
         rootView.professor_review_edit_image.setOnClickListener() {
-            showAddReviewDialog(adapter)
+            showAddReviewDialog(adapter, rootView)
         }
 
         return rootView
@@ -50,19 +51,37 @@ class IndiviualProfessorFragment : Fragment() {
         //TODO: picture
     }
 
-    private fun showAddReviewDialog(adapter: ReviewAdapter) {
+    private fun showAddReviewDialog(adapter: ReviewAdapter, rootView: View) {
         val builder = AlertDialog.Builder(context!!)
         // Set options
         builder.setTitle(getString(R.string.new_review_title))
 
         // Content is message, view, or list of items
-        val view = LayoutInflater.from(context).inflate(R.layout.re, null, false)
+        val view = LayoutInflater.from(context).inflate(R.layout.dialog_add_rate_professor_review, null, false)
         builder.setView(view)
         builder.setPositiveButton(android.R.string.ok) { _, _ ->
-            val name = view.dialog_add_new_group_name.text.toString()
-            val code = view.dialog_add_new_group_code.text.toString()
-            if (!name.isBlank() && !code.isBlank()) {
-                adapter.addExistingGroup(name, code.toInt(), context!!)
+            val className = view.dialog_rate_professor_class.text.toString()
+            val reviewContent = view.dialog_rate_professor_content.text.toString()
+            var diff = view.dialog_rate_professor_difficulty.text.toString()
+            var quality = view.dialog_rate_professor_quality.text.toString()
+            if (className.isNotBlank() && reviewContent.isNotBlank() && diff.isNotBlank() && quality.isNotBlank()) {
+                if (diff.toFloat() > 5) {
+                    diff = "5"
+                } else if (diff.toFloat() < 0) {
+                    diff = "0"
+                }
+
+                if (quality.toFloat() > 5) {
+                    quality = "5"
+                } else if (quality.toFloat() < 0) {
+                    quality = "0"
+                }
+
+                val review = ReviewModel(className, reviewContent, diff.toFloat(), quality.toFloat())
+                adapter.addReview(review)
+                val averages = adapter.calculateAverage(review)
+                rootView.rate_professor_rating_difficulty.rating = averages.first
+                rootView.rate_professor_rating.rating = averages.second
             }
         }
         builder.setNegativeButton(android.R.string.cancel, null)

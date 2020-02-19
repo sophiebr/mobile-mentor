@@ -54,7 +54,21 @@
                 android:rating="2.5"
                 android:progressTint="@color/colorRatingProgress"
                 android:layout_centerHorizontal="true"
-                android:layout_below="@id/rate_professor_name"/>
+                android:layout_below="@id/rate_professor_name"
+                android:layout_marginBottom="5dp"/>
+
+            <RatingBar
+                android:id="@+id/rate_professor_rating_difficulty"
+                style="@android:style/Widget.Holo.Light.RatingBar.Small"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="30dp"
+                android:scaleX="1.5"
+                android:scaleY="1.5"
+                android:rating="2.5"
+                android:progressTint="@color/colorRatingProgressDifficulty"
+                android:layout_centerHorizontal="true"
+                android:layout_below="@id/rate_professor_rating"/>
 
         </RelativeLayout>
 
@@ -63,7 +77,8 @@
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="10dp">
+        android:layout_marginBottom="10dp"
+        android:layout_marginTop="10dp">
 
         <TextView
             android:id="@+id/rate_professor_reviews_title"

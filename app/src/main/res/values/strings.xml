@@ -56,6 +56,7 @@
     <string name="dialog_post_title">Title</string>
     <string name="dialog_post_tags">Tags (Comma Separated)</string>
     <string name="dialog_post_content">Content</string>
+    <string name="dialog_post_type">Post Type (Defaults as Question)</string>
     <string name="login">Login</string>
     <string name="admin">ADMIN</string>
     <string name="mentor">MENTOR</string>
@@ -69,5 +70,7 @@
     <string name="create_new_group">Create New Group</string>
     <string name="new_group_title">New Group</string>
     <string name="invalid_group">Invalid group</string>
-
+    <string name="update_picture_button">Update Picture</string>
+    <string name="dialog_edit_profile_details">Edit Profile Details</string>
+    <string name="new_post_notice_checkbox">Post as Notice</string>
 </resources>

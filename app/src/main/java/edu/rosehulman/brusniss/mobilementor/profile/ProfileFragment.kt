@@ -206,6 +206,13 @@ class ProfileFragment : Fragment() {
         }.addOnCompleteListener { task ->
             if (task.isSuccessful) {
                 val downloadUri = task.result
+                // Delete the old image before uploading a new one
+                userRef.get().addOnSuccessListener {
+                    val url = it.get("pictureUrl") as String
+                    if (url.isNotBlank()) {
+                        FirebaseStorage.getInstance().getReferenceFromUrl(url).delete()
+                    }
+                }
                 userRef.update("pictureUrl", downloadUri.toString())
                 Log.d(Constants.TAG, "Image download succeeded: $downloadUri")
             } else {

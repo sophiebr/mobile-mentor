@@ -1,11 +1,13 @@
 package edu.rosehulman.brusniss.mobilementor.forum
 
+import android.content.Context
 import android.view.View
+import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import edu.rosehulman.brusniss.mobilementor.R
 import kotlinx.android.synthetic.main.fragment_forum_row.view.*
 
-class ForumPostListViewHolder(itemView: View, adapter: ForumPostListAdapter) : RecyclerView.ViewHolder(itemView) {
+class ForumPostListViewHolder(itemView: View, adapter: ForumPostListAdapter, val context: Context) : RecyclerView.ViewHolder(itemView) {
 
     init {
         itemView.setOnClickListener { v ->
@@ -24,5 +26,8 @@ class ForumPostListViewHolder(itemView: View, adapter: ForumPostListAdapter) : R
             QuestionStatus.NOTIFICATION -> R.drawable.ic_forum_notification
             else -> R.drawable.ic_hourglass
         })
+
+        itemView.tag_recycler_view.layoutManager = LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, false)
+        itemView.tag_recycler_view.adapter = TagAdapter(context, model.tags)
     }
 }

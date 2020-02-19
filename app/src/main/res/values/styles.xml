@@ -24,6 +24,7 @@
         <item name="android:text">@string/default_tag_text</item>
         <item name="android:textColor">@android:color/white</item>
         <item name="android:textStyle">bold</item>
+        <item name="android:textAlignment">center</item>
     </style>
 
 </resources>

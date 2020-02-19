@@ -97,4 +97,5 @@
     <string name="colorDialogTitle">Choose %s color</string>
     <string name="banner">Banner</string>
     <string name="menu">Menu</string>
+    <string name="new_name_title">Change Display Name</string>
 </resources>

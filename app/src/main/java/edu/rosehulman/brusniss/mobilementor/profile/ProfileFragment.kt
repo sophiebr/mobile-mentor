@@ -26,6 +26,8 @@ import edu.rosehulman.brusniss.mobilementor.BitmapUtils
 import edu.rosehulman.brusniss.mobilementor.Constants
 import edu.rosehulman.brusniss.mobilementor.R
 import edu.rosehulman.brusniss.mobilementor.User
+import kotlinx.android.synthetic.main.dialog_edit_profile_details.*
+import kotlinx.android.synthetic.main.dialog_edit_profile_details.view.*
 import kotlinx.android.synthetic.main.fragment_profile.view.*
 import java.io.ByteArrayOutputStream
 import java.io.File
@@ -77,7 +79,18 @@ class ProfileFragment : Fragment() {
     }
 
     private fun showChangeNameDialog() {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+        val builder = AlertDialog.Builder(context!!)
+        builder.setTitle(getString(R.string.new_name_title))
+        val view = LayoutInflater.from(context).inflate(R.layout.dialog_edit_profile_details, null, false)
+        builder.setView(view)
+        builder.setPositiveButton(android.R.string.ok) { _, _ ->
+            val name = view.dialog_edit_profile_details.text.toString()
+            if (name.isNotBlank()) {
+                userRef.update("name", name)
+            }
+        }
+        builder.setNegativeButton(android.R.string.cancel, null)
+        builder.create().show()
     }
 
     private fun showPictureDialog() {

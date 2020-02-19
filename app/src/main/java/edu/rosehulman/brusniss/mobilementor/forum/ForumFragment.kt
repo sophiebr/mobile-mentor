@@ -53,10 +53,15 @@ class ForumFragment : Fragment() {
         builder.setView(view)
         builder.setPositiveButton(android.R.string.ok) { _, _ ->
             val title = view.dialog_add_forum_post_title.text.toString()
+            val tags = view.dialog_add_forum_post_tags.text.toString()
             val content = view.dialog_add_forum_post_content.text.toString()
             if (!title.isBlank() && !content.isBlank()) {
+                val tagList = ArrayList<String>()
+                if (tags.isNotBlank()) {
+                    tagList.addAll(tags.split(","))
+                }
                 val authorRef = FirebaseFirestore.getInstance().document(User.firebasePath)
-                adapter.addNewPost(ForumPostModel(title = title, content = content, author = authorRef))
+                adapter.addNewPost(ForumPostModel(title = title, content = content, tags = tagList, author = authorRef))
             }
         }
         builder.setNegativeButton(android.R.string.cancel, null)

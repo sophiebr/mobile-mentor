@@ -7,4 +7,7 @@ object Constants {
     const val GROUP_PATH = "group"
     const val RC_ROSEFIRE_LOGIN = 1
     const val USER_PATH = "user"
+    const val RC_TAKE_PICTURE = 1
+    const val RC_CHOOSE_PICTURE = 2
+    const val IMAGES_PATH = "images"
 }

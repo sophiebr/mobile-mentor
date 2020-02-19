@@ -86,4 +86,8 @@
     <string name="pref_dnd_summary">Toggle Do NOT Disturb</string>
     <string name="pref_notifications_cat_title">Notifications</string>
     <string name="pref_customize_cat_title">Customize</string>
+    <string name="photo_source">Choose a photo source</string>
+    <string name="photo_source_msg">"Would you like to take a new picture?\nOr choose an existing one?"s</string>
+    <string name="take_pic">Take Picture</string>
+    <string name="choose_pic">Choose Picture</string>
 </resources>

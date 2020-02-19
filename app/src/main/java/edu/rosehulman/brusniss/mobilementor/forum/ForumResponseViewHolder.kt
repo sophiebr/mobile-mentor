@@ -2,6 +2,7 @@ package edu.rosehulman.brusniss.mobilementor.forum
 
 import android.view.View
 import androidx.recyclerview.widget.RecyclerView
+import com.squareup.picasso.Picasso
 import edu.rosehulman.brusniss.mobilementor.profile.ProfileModel
 import kotlinx.android.synthetic.main.fragment_forum_post_response_row.view.*
 
@@ -19,7 +20,10 @@ class ForumResponseViewHolder(itemView: View, private var adapter: ForumResponse
         model.author?.get()?.addOnSuccessListener {
             val profile = ProfileModel.fromSnapshot(it)
             itemView.post_author_name.text = profile.name
-            //TODO: picture
+            if (profile.pictureUrl.isNotBlank()) {
+                Picasso.get().load(profile.pictureUrl).resize(200, 200).centerInside()
+                    .into(itemView.author_picture)
+            }
         }
     }
 }

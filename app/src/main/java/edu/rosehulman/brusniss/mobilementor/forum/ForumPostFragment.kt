@@ -12,6 +12,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.google.firebase.firestore.CollectionReference
 import com.google.firebase.firestore.DocumentReference
 import com.google.firebase.firestore.FirebaseFirestore
+import com.squareup.picasso.Picasso
 import edu.rosehulman.brusniss.mobilementor.Constants
 import edu.rosehulman.brusniss.mobilementor.R
 import edu.rosehulman.brusniss.mobilementor.User
@@ -68,7 +69,10 @@ class ForumPostFragment : Fragment() {
             ForumPostModel.fromSnapshot(it).author?.get()?.addOnSuccessListener {
                 val profile = ProfileModel.fromSnapshot(it)
                 header.post_author_name.text = profile.name
-                //TODO: picture
+                if (profile.pictureUrl.isNotBlank()) {
+                    Picasso.get().load(profile.pictureUrl).resize(200, 200).centerInside()
+                        .into(header.author_picture)
+                }
             }
         }
         // TODO: Add tags

@@ -8,6 +8,8 @@ import androidx.appcompat.app.AlertDialog
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import edu.rosehulman.brusniss.mobilementor.R
+import edu.rosehulman.brusniss.mobilementor.User
+import edu.rosehulman.brusniss.mobilementor.profile.PermissionLevel
 import kotlinx.android.synthetic.main.dialog_add_rate_professor_review.view.*
 import kotlinx.android.synthetic.main.fragment_rate_professor_individual_review.view.*
 
@@ -33,11 +35,16 @@ class IndiviualProfessorFragment : Fragment() {
         rootView.professor_review_recycler.setHasFixedSize(true)
         rootView.professor_review_recycler.adapter = adapter
 
-        rootView.rate_professor_write_reviews_title.setOnClickListener() {
-            showAddReviewDialog(adapter, rootView)
-        }
-        rootView.professor_review_edit_image.setOnClickListener() {
-            showAddReviewDialog(adapter, rootView)
+        if (User.permissionLevel != PermissionLevel.PROFESSOR) {
+            rootView.rate_professor_write_reviews_title.setOnClickListener() {
+                showAddReviewDialog(adapter, rootView)
+            }
+            rootView.professor_review_edit_image.setOnClickListener() {
+                showAddReviewDialog(adapter, rootView)
+            }
+        } else {
+            rootView.rate_professor_write_reviews_title.visibility = View.GONE
+            rootView.professor_review_edit_image.visibility = View.GONE
         }
 
         return rootView

@@ -70,5 +70,6 @@
     <string name="new_group_title">New Group</string>
     <string name="invalid_group">Invalid group</string>
     <string name="update_picture_button">Update Picture</string>
+    <string name="dialog_edit_profile_details">Edit Profile Details</string>
 
 </resources>

@@ -73,4 +73,6 @@
     <string name="update_picture_button">Update Picture</string>
     <string name="dialog_edit_profile_details">Edit Profile Details</string>
     <string name="new_post_notice_checkbox">Post as Notice</string>
+    <string name="join_group_title">Join Existing Group</string>
+    <string name="new_review_title">New Review</string>
 </resources>

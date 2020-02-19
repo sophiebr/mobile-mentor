@@ -57,4 +57,22 @@ class ReviewAdapter(private val context: Context, profRefPath: String) : Recycle
     override fun onBindViewHolder(holder: ReviewViewHolder, position: Int) {
         holder.bind(reviews[position])
     }
+
+    fun addReview(review: ReviewModel) {
+        reviewRef.add(review)
+        calculateAverage()
+    }
+
+    private fun calculateAverage() {
+        var avgDif = 0.0f
+        var avgQual = 0.0f
+        for (review in reviews) {
+            avgDif += review.difficulty
+            avgQual += review.quality
+        }
+        avgDif /= reviews.size
+        avgQual /= reviews.size
+        profRef.update("difficulty", avgDif)
+        profRef.update("quality", avgQual)
+    }
 }

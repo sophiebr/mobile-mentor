@@ -72,7 +72,7 @@ class GroupFragment : Fragment() {
     private fun showJoinGroupDialog() {
         val builder = AlertDialog.Builder(context!!)
         // Set options
-        builder.setTitle("Join Existing Group")
+        builder.setTitle(getString(R.string.join_group_title))
 
         // Content is message, view, or list of items
         val view = LayoutInflater.from(context).inflate(R.layout.dialog_add_group, null, false)
